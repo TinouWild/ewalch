@@ -4,16 +4,16 @@ volumes:
   typesense-data:
 
 services:
-#  nginx:
-#    container_name: nginx
-#    image: nginx:stable-alpine
-#    ports:
-#      - '8080:80'
-#    volumes:
-#      - ../app/public:/var/www/html/public
-#      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-#    depends_on:
-#      - php
+  nginx:
+    container_name: nginx
+    image: nginx:stable-alpine
+    ports:
+      - '8080:80'
+    volumes:
+      - ../app/public:/var/www/html/public
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
 
   php:
     container_name: php
