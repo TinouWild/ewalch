@@ -1,0 +1,28 @@
+version: '3.9'
+
+volumes:
+  typesense-data:
+
+services:
+#  nginx:
+#    container_name: nginx
+#    image: nginx:stable-alpine
+#    ports:
+#      - '8080:80'
+#    volumes:
+#      - ../app/public:/var/www/html/public
+#      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+#    depends_on:
+#      - php
+
+  php:
+    container_name: php
+    build:
+      context: .
+    networks: [default]
+    ports:
+      - '9000:9000'
+    env_file: ['./environment/api.env']
+    volumes:
+      - ../app:/var/www/html
+      - ./config/php.ini:/usr/local/etc/php/conf.d/custom.ini
