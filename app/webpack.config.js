@@ -25,6 +25,7 @@ Encore
 
     .addStyleEntry('morph', './assets/styles/morph.min.css')
     .addStyleEntry('bootstrap-css', './assets/styles/bootstrap.min.css')
+    .addStyleEntry('icons', './assets/styles/icons.css')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()

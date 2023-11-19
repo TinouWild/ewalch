@@ -1,0 +1,24 @@
+<section id="contact" class="contact">
+    <div class="section-title">
+        <h2>Contact</h2>
+    </div>
+    <div class="container">
+        {{ form_start(form) }}
+        <fieldset>
+            <div class="form-group">
+                {{ form_row(form.email, {'id': 'floatingInput'}) }}
+                <small id="emailHelp" class="form-text text-muted">Votre adresse email ne sera pas partagée, ni conservée.</small>
+                <div data-lastpass-icon-root="true" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;"></div>
+            </div>
+            <div class="form-group mt-3">
+                {{ form_row(form.object) }}
+            </div>
+            <div class="form-group">
+                <label for="exampleTextarea" class="form-label mt-4">Votre message :</label>
+                {{ form_row(form.message) }}
+            </div>
+            <button type="submit" class="btn btn-primary mt-3 float-end">Envoyer</button>
+        </fieldset>
+        {{ form_end(form)}}
+    </div>
+</section>
