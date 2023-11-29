@@ -1,18 +1,5 @@
 FROM php:8.2-fpm
 
-RUN echo 'toto'
-# Installez le démon cron
-RUN apt-get update \
-    && apt-get install -y cron \
-    && rm -rf /var/lib/apt/lists/*
-
-# Configurez le démon cron
-COPY docker/config/root.txt /etc/cron.d/root.txt
-RUN chmod 0644 /etc/cron.d/root.txt
-
-RUN service cron start
-RUN crontab /etc/cron.d/root.txt
-
 # Installez les autres dépendances
 RUN curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | bash
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -35,5 +22,5 @@ COPY app /var/www/html
 WORKDIR /var/www/html
 
 RUN yarn dev
-COPY app/public/images /var/www/html/public/
+COPY app/public/ /var/www/html/public/
 CMD ["supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]
