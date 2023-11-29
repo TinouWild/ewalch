@@ -48,6 +48,22 @@
     #etienne {
         background-attachment: fixed;
     }
+    #main {
+        margin-left: 300px;
+    }
+    #header-navbar-mobile {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1026px) {
+    #header-navbar {
+        display: none;
+    }
+    .bi {
+        font-size: 2em;
+        color: black;
+    }
 }
 
 @media (max-width: 768px) {
@@ -238,8 +254,4 @@ a {
 
 .mobile-nav-active #header {
     left: 0;
-}
-
-#main {
-    margin-left: 300px;
 }
