@@ -4,12 +4,16 @@
     </div>
     <div class="container">
         <div class="row">
-            <img src="{{ preload(asset('xboxsquad.png')) }}" alt="xboxsquad"
+            <img src="{{ asset('images/xboxsquad.png') }}" alt="xboxsquad"
                  class="img-fluid col-md-5 mx-md-3 mb-md-3 mb-2">
             <div class="card col-md-6 mx-md-3 mb-md-3 mb-3">
                 <div class="card-body">
                     <h4 class="card-title">Xbox Squad</h4>
-                    <p class="card-text">Site dédié à l'actualité du jeu vidéo, notamment de l'univers Xbox.</p>
+                    <p class="card-text">
+                        Site dédié à l'actualité du jeu vidéo, notamment de l'univers Xbox.
+                        Rédaction de plus de 10.000 articles (tests, actualités). Mise en place du WordPress.
+                        Aujourd'hui inactif.
+                    </p>
                     <p class="card-text">
                         <i class="fa-brands fa-wordpress fa-2x"></i>
                     </p>
@@ -22,7 +26,33 @@
             </div>
         </div>
         <div class="row">
-            <img src="{{ preload(asset('scoringames.png')) }}" alt="scoringames"
+            <img src="{{ asset('images/titine.png') }}" alt="titine"
+                 class="img-fluid col-md-5 mx-md-3 mb-md-3 mb-2">
+            <div class="card col-md-6 mx-md-3 mb-md-3 mb-3">
+                <div class="card-body">
+                    <h4 class="card-title">Titine créations</h4>
+                    <p class="card-text">
+                        Site permettant à ma maman d'exposer ses peintures. Elle dispose d'un espace d'administration
+                        depuis lequel elle peut ajouter ses propres réalisations (WYSIWYG, upload d'images), les modifier
+                        et les supprimer. Elle peut également choisir l'ordre des réalisations et les rendre offline.
+                        Application réalisée sous Symfony 8, hébergement sous Docker sur mon serveur dédié.
+                    </p>
+                    <p class="card-text">
+                        <i class="fa-brands fa-symfony fa-2x"></i>
+                        <i class="fa-brands fa-docker fa-2x"></i>
+                        <i class="fa-brands fa-php fa-2x"></i>
+                        <i class="fa-solid fa-database fa-2x"></i>
+                    </p>
+                    <button type="button" class="btn btn-outline-light float-end">
+                        <a href="https://titine-creations.fr" target="_blank" class="link-dark">
+                            Voir
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <img src="{{ asset('images/scoringames.png') }}" alt="scoringames"
                  class="img-fluid col-md-5 mx-md-3 mb-md-3 mb-2">
             <div class="card col-md-6 mx-md-3 mb-md-3 mb-2">
                 <div class="card-body">

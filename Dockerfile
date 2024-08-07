@@ -12,15 +12,8 @@ RUN apt-get update \
     && docker-php-ext-install zip pdo_pgsql \
     && rm -rf /var/lib/apt/lists/*
 
-# Installez Yarn
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-RUN apt-get update && apt-get install -y yarn
-
 COPY docker/config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY app /var/www/html
 WORKDIR /var/www/html
 
-RUN yarn dev
-COPY app/public/ /var/www/html/public/
 CMD ["supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]

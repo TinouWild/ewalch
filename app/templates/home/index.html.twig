@@ -4,9 +4,9 @@
 
 {% block body %}
     <div class="container-fluid">
-        <div id="header-navbar" class="bg-black">
+        <div id="header-navbar">
             <div class="profile">
-                <img src="{{ preload(asset('20230527_224322.jpg')) }}" alt="picture_home"
+                <img src="{{ asset('images/20230527_224322.jpg') }}" alt="picture_home"
                      class="img-fluid rounded-circle">
                 <h1 class="text-light"><a href="{{ path('app_home_index') }}">Etienne Walch</a></h1>
                 <div class="social-links mt-3 text-center">
@@ -29,7 +29,7 @@
         <section id="etienne" class="d-flex flex-column justify-content-center align-items-center">
             <div class="etienne-container" data-aos="fade-in">
                 <h1>Etienne Walch</h1>
-                <p>I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer"></span></p>
+                <span id="dev-typed"></span>
             </div>
         </section>
 
@@ -47,4 +47,18 @@
             {% include 'home/_contact.html.twig' %}
         </main>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var options = {
+                strings: ["Développeur"],
+                typeSpeed: 50,
+                backSpeed: 25,
+                backDelay: 1000,
+                loop: true
+            };
+
+            var typed = new Typed("#dev-typed", options);
+        });
+    </script>
 {% endblock %}

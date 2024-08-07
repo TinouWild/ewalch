@@ -1,13 +1,13 @@
 #etienne {
     width: 100%;
     height: 100vh;
-    background: url("../../public/IMG_20221017_223701_999.jpg") top center;
+    background: url("../images/cover_front.jpg") top center;
     background-size: cover;
 }
 
 #etienne:before {
     content: "";
-    background: rgba(5, 13, 24, 0.3);
+    background: rgba(5, 13, 24, 0.2);
     position: absolute;
     bottom: 0;
     top: 0;
@@ -254,4 +254,12 @@ a {
 
 .mobile-nav-active #header {
     left: 0;
+}
+
+#dev-typed {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    opacity: 70%;
+    margin: 20px;
 }
