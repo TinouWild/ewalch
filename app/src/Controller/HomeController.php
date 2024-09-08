@@ -2,11 +2,11 @@
 
 namespace App\Controller;
 
+use App\Service\SitemapGenerator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -48,9 +48,15 @@ class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/experiences', name: 'app_experiences')]
-    public function experiences(): Response
+    #[\Symfony\Component\Routing\Attribute\Route('/sitemap.xml', name: 'app_sitemap', methods: ['GET'])]
+    public function sitemap(SitemapGenerator $sitemapGenerator): Response
     {
-        return $this->render('home/experiences.html.twig');
+        return $sitemapGenerator->generateSitemap();
+    }
+
+    #[Route('/robots.txt', name: 'app_robots', methods: ['GET'])]
+    public function robotDirectives(SitemapGenerator $sitemapGenerator): Response
+    {
+        return $sitemapGenerator->generateRobotsTxt();
     }
 }

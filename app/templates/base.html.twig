@@ -2,7 +2,9 @@
 <html lang="FR-fr">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
-    <title>Etienne Walch - {% block title %}{% endblock %}</title>
+    <meta name="description" content="Développeur web passionné, je conçois des sites modernes, performants et
+    sur-mesure. Besoin d'un site vitrine ou d'une application web ? Découvrez mes services et réalisations." />
+    <title>Etienne Walch, développeur web Mulhouse - {% block title %}{% endblock %}</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
 
     {% block stylesheets %}{% endblock %}
@@ -24,6 +26,7 @@
 </script>
 
 <body>
+<button id="backToTopBtn" title="Retour en haut"><i class="fa-solid fa-caret-up"></i></button>
 {% block body %}{% endblock %}
 </body>
 </html>

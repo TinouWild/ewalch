@@ -3,75 +3,92 @@
         <h2>Portfolio</h2>
     </div>
     <div class="container">
-        <div class="row">
-            <img src="{{ asset('images/xboxsquad.png') }}" alt="xboxsquad"
-                 class="img-fluid col-md-5 mx-md-3 mb-md-3 mb-2">
-            <div class="card col-md-6 mx-md-3 mb-md-3 mb-3">
-                <div class="card-body">
-                    <h4 class="card-title">Xbox Squad</h4>
-                    <p class="card-text">
-                        Site dédié à l'actualité du jeu vidéo, notamment de l'univers Xbox.
-                        Rédaction de plus de 10.000 articles (tests, actualités). Mise en place du WordPress.
-                        Aujourd'hui inactif.
-                    </p>
-                    <p class="card-text">
-                        <i class="fa-brands fa-wordpress fa-2x"></i>
-                    </p>
-                    <button type="button" class="btn btn-outline-light float-end">
-                        <a href="https://xboxsquad.fr" target="_blank" class="link-dark">
-                            Voir
-                        </a>
-                    </button>
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-4">
+                <div class="card mb-3">
+                    <h3 class="card-header text-black">Les fit cookies de la petite Marie</h3>
+                    <img src="{{ asset('images/fitcookies.png') }}" alt="fitcookies" class="img-fluid">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Découvrez le site Les fit cookies de la petite Marie – Une expérience web sur-mesure,
+                            alliant gourmandise et innovation.
+                        </h5>
+                        <p class="card-text justify-text">
+                            Un projet unique que j'ai eu le plaisir de développer, avec des fonctionnalités modernes comme
+                            la gestion des commandes en ligne, le paiement sécurisé via Stripe et un back-office performant
+                            pour un suivi client optimal.
+                        </p>
+                    </div>
+                    <div class="card-body">
+                        <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                                data-bs-target="#fitcookiesmodal">En savoir plus
+                        </button>
+                        {% include '/portfolio/fitcookiesmodal.html.twig' %}
+                        <button type="button" class="btn btn-dark">
+                            <a href="https://lesfitcookiesdelapetitemarie.fr" target="_blank" class="card-link">
+                                Visiter le site
+                            </a>
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <img src="{{ asset('images/titine.png') }}" alt="titine"
-                 class="img-fluid col-md-5 mx-md-3 mb-md-3 mb-2">
-            <div class="card col-md-6 mx-md-3 mb-md-3 mb-3">
-                <div class="card-body">
-                    <h4 class="card-title">Titine créations</h4>
-                    <p class="card-text">
-                        Site permettant à ma maman d'exposer ses peintures. Elle dispose d'un espace d'administration
-                        depuis lequel elle peut ajouter ses propres réalisations (WYSIWYG, upload d'images), les modifier
-                        et les supprimer. Elle peut également choisir l'ordre des réalisations et les rendre offline.
-                        Application réalisée sous Symfony 8, hébergement sous Docker sur mon serveur dédié.
-                    </p>
-                    <p class="card-text">
-                        <i class="fa-brands fa-symfony fa-2x"></i>
-                        <i class="fa-brands fa-docker fa-2x"></i>
-                        <i class="fa-brands fa-php fa-2x"></i>
-                        <i class="fa-solid fa-database fa-2x"></i>
-                    </p>
-                    <button type="button" class="btn btn-outline-light float-end">
-                        <a href="https://titine-creations.fr" target="_blank" class="link-dark">
-                            Voir
-                        </a>
-                    </button>
+            <div class="col-lg-4">
+                <div class="card mb-3">
+                    <h3 class="card-header text-black">Titine créations</h3>
+                    <img src="{{ asset('images/titine.png') }}" alt="titine" class="img-fluid">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Titine Créations - L’art au bout des doigts, même d’une seule main
+                        </h5>
+                        <p class="card-text justify-text">
+                            Découvrez le site que j'ai conçu pour mettre en lumière les peintures réalisées au couteau
+                            par une artiste handicapée d'une main. À travers ce projet, j'ai créé une plateforme
+                            élégante qui expose ses œuvres tout en permettant une gestion autonome grâce à un back
+                            office permettant la modération des peintures visibles sur le site.
+                        </p>
+                    </div>
+                    <div class="card-body">
+                        <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                                data-bs-target="#titinemodal">En savoir plus
+                        </button>
+                        {% include '/portfolio/titinemodal.html.twig' %}
+                        <button type="button" class="btn btn-dark">
+                            <a href="https://titine-creations.fr" target="_blank" class="card-link">
+                                Visiter le site
+                            </a>
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <img src="{{ asset('images/scoringames.png') }}" alt="scoringames"
-                 class="img-fluid col-md-5 mx-md-3 mb-md-3 mb-2">
-            <div class="card col-md-6 mx-md-3 mb-md-3 mb-2">
-                <div class="card-body">
-                    <h4 class="card-title">scoringames</h4>
-                    <p class="card-text">Site et applis mobiles dédiés à l'actualité du jeu de société, ouverture en novembre 2024.</p>
-                    <p class="card-text">
-                        <i class="fa-brands fa-symfony fa-2x"></i>
-                        <i class="fa-brands fa-docker fa-2x"></i>
-                        <i class="fa-brands fa-php fa-2x"></i>
-                        <i class="fa-solid fa-database fa-2x"></i>
-                    </p>
-                    <button type="button" class="btn btn-outline-light float-end">
-                        <a href="https://scoringames.com" target="_blank" class="link-dark">
-                            Voir
-                        </a>
-                    </button>
+            <div class="col-lg-4">
+                <div class="card mb-3">
+                    <h3 class="card-header text-black">scoringames</h3>
+                    <img src="{{ asset('images/scoringames.png') }}" alt="scoringames" class="img-fluid">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Scoringames - L'univers du jeu de société connecté à votre ludothèque virtuelle
+                        </h5>
+                        <p class="card-text justify-text">
+                            Scoringames est une plateforme dédiée à l'actualité du jeu de société, proposant des outils
+                            innovants pour les passionnés. Découvrez un système de gestion de ludothèque virtuelle, un
+                            programme de points récompensant l'activité des utilisateurs (commentaires, partages), et
+                            bien plus. Administré via un back office complet avec éditeur WYSIWYG et système d'import
+                            de jeux, Scoringames allie simplicité et innovation pour enrichir l'expérience des joueurs.
+                        </p>
+                    </div>
+                    <div class="card-body">
+                        <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                                data-bs-target="#scoringamesmodal">En savoir plus
+                        </button>
+                        {% include '/portfolio/scoringames.html.twig' %}
+                        <button type="button" class="btn btn-dark">
+                            <a href="https://scoringames.com" target="_blank" class="card-link">
+                                Visiter le site
+                            </a>
+                        </button>
+                    </div>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
