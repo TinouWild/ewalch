@@ -7,8 +7,10 @@
 
 import './bootstrap.js'
 import './backToTop.js'
+import './textarea.js'
 
 import './styles/morph.css'
 import './styles/app.css'
 import './styles/backToTop.css'
+import './styles/textarea.css'
 

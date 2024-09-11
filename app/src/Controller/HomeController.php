@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Service\BrevoMailer;
 use App\Service\SitemapGenerator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -10,11 +11,15 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 
 class HomeController extends AbstractController
 {
+    /**
+     * @throws TransportExceptionInterface
+     */
     #[Route('/', name: 'app_home_index')]
-    public function index(Request $request): Response
+    public function index(Request $request, BrevoMailer $brevoMailer): Response
     {
         $form = $this->createFormBuilder()
             ->add('email', EmailType::class, [
@@ -40,6 +45,8 @@ class HomeController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $brevoMailer->sendMail($form);
+            $this->addFlash('success', "Votre message a été envoyé avec succès !");
             return $this->redirectToRoute('app_home_index');
         }
 
