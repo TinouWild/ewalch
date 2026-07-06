@@ -13,4 +13,5 @@ import './styles/morph.css'
 import './styles/app.css'
 import './styles/backToTop.css'
 import './styles/textarea.css'
-
+import './styles/timeline.css'
+import './styles/techno.css'

@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends '/home/base.html.twig' %}
 
 {% block title %}Accueil{% endblock %}
 
@@ -13,18 +13,12 @@
             </div>
         </section>
 
-{#        <div id="header-navbar-mobile" class="social-links mt-3">#}
-{#            <div class="d-flex justify-content-around">#}
-{#                <a href="https://www.instagram.com/etienne_walch/" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>#}
-{#                <a href="https://www.linkedin.com/in/etienne-walch-07683216b/" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>#}
-{#            </div>#}
-{#        </div>#}
-
         <main id="main">
-            {% include 'home/_apropos.html.twig' %}
-            {% include 'home/_portfolio.html.twig' %}
-            {% include 'home/_experiences.html.twig' %}
-            {% include 'home/_contact.html.twig' %}
+            {% include 'home/index/_apropos.html.twig' %}
+            {% include 'home/index/_portfolio.html.twig' %}
+            {% include 'home/index/_demo.html.twig' %}
+            {% include 'home/index/_experiences.html.twig' %}
+            {% include 'home/index/_contact.html.twig' %}
         </main>
     </div>
 

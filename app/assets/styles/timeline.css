@@ -1,0 +1,35 @@
+
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 3px solid rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item {
+    position: relative;
+}
+
+.timeline-icon {
+    position: relative;
+    z-index: 2;
+}
+
+.timeline-icon .badge {
+    font-size: 1.3rem;
+    background: linear-gradient(135deg, #0d6efd, #6610f2);
+    box-shadow: 0 0 10px rgba(13, 110, 253, 0.3);
+}
+
+.timeline-content {
+    flex: 1;
+}
+
+/* Petites améliorations visuelles */
+@media (min-width: 768px) {
+    .timeline {
+        padding-left: 3rem;
+    }
+    .timeline-content {
+        padding-top: 0.3rem;
+    }
+}

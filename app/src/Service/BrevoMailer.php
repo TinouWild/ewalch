@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-use Symfony\Component\Form\Form;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
@@ -20,7 +20,7 @@ class BrevoMailer
     /**
      * @throws TransportExceptionInterface
      */
-    public function sendMail(Form $form): void
+    public function sendMail(FormInterface $form): void
     {
         $data = $form->getViewData();
         $content = "<html><head></head><body>";

@@ -1,17 +1,22 @@
 SHELL:=/usr/bin/env bash
 
+COMPOSE=docker compose -f docker/docker-compose.yml
+
 start:
-	docker compose pull && docker compose up -d --remove-orphans --force-recreate
+	$(COMPOSE) pull && $(COMPOSE) up -d --remove-orphans --force-recreate
 
 stop:
-	docker compose down --remove-orphans
+	$(COMPOSE) down --remove-orphans
+
+build:
+	$(COMPOSE) build --no-cache php
 
 console:
-	docker compose exec php bash
+	$(COMPOSE) exec ewalch-dev_php bash
 
 sniff:
-	docker compose exec php bash -c "vendor/bin/phpstan --memory-limit=512M analyse"
+	$(COMPOSE) exec php_ewalch bash -c "vendor/bin/phpstan --memory-limit=512M analyse"
 
 crontab-debug:
-	docker compose exec php bash -c "crontab -u root -l"
-	docker compose exec php bash -c "tail /var/log/mon_cron.log"
+	$(COMPOSE) exec php_ewalch bash -c "crontab -u root -l"
+	$(COMPOSE) exec php_ewalch bash -c "tail /var/log/mon_cron.log"

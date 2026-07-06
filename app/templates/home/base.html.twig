@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="FR-fr">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <meta name="description" content="Développeur web passionné, je conçois des sites modernes, performants et
+    sur-mesure. Besoin d'un site vitrine ou d'une application web ? Découvrez mes services et réalisations." />
+    <title>Etienne Walch, développeur web Mulhouse - {% block title %}{% endblock %}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+
+    {% block stylesheets %}{% endblock %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
+    {% block javascripts %}{% endblock %}
+    {% block importmap %}{{ importmap('app') }}{% endblock %}
+    <script src="https://kit.fontawesome.com/126882865c.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+</head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5S1BBC6WZ1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-5S1BBC6WZ1');
+</script>
+
+<body>
+<button id="backToTopBtn" title="Retour en haut"><i class="fa-solid fa-caret-up"></i></button>
+{% block body %}{% endblock %}
+</body>
+</html>

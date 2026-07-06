@@ -10,7 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 
 class HomeController extends AbstractController
@@ -21,7 +21,7 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home_index')]
     public function index(Request $request, BrevoMailer $brevoMailer): Response
     {
-        $form = $this->createFormBuilder()
+        $contactForm = $this->createFormBuilder()
             ->add('email', EmailType::class, [
                 'required' => true,
                 'label' => false,
@@ -43,19 +43,36 @@ class HomeController extends AbstractController
             ->getForm()
         ;
 
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $brevoMailer->sendMail($form);
+        $contactForm->handleRequest($request);
+        if ($contactForm->isSubmitted() && $contactForm->isValid()) {
+            $brevoMailer->sendMail($contactForm);
             $this->addFlash('success', "Votre message a été envoyé avec succès !");
             return $this->redirectToRoute('app_home_index');
         }
 
-        return $this->render('home/index.html.twig', [
-            'form' => $form
+        $demoForm = $this->createFormBuilder()
+            ->add('email', EmailType::class, [
+                'required' => true,
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Votre email'
+                ]
+            ])
+            ->getForm();
+        $demoForm->handleRequest($request);
+        if ($demoForm->isSubmitted() && $demoForm->isValid()) {
+//            $brevoMailer->sendMail($contactForm);
+//            $this->addFlash('success', "Votre message a été envoyé avec succès !");
+            return $this->redirectToRoute('app_home_index');
+        }
+
+        return $this->render('home/index/index.html.twig', [
+            'contactForm' => $contactForm,
+            'demoForm' => $demoForm->createView(),
         ]);
     }
 
-    #[\Symfony\Component\Routing\Attribute\Route('/sitemap.xml', name: 'app_sitemap', methods: ['GET'])]
+    #[Route('/sitemap.xml', name: 'app_sitemap', methods: ['GET'])]
     public function sitemap(SitemapGenerator $sitemapGenerator): Response
     {
         return $sitemapGenerator->generateSitemap();

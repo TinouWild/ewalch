@@ -1,0 +1,31 @@
+<section id="demo" class="demo">
+    <div class="section-title">
+        <h2 class="text-black">Démo</h2>
+    </div>
+    <div class="card border-secondary mx-md-3 mb-md-3 mb-2">
+        <div class="card-body">
+            <p class="card-text justify-text">
+                Pour avoir un aperçu des différentes fonctionnalités que je peux vous proposer, n'hésitez pas à demander
+                un accès à l'espace de démo avec le formulaire ci-dessous.
+            <div class="container">
+                {{ form_start(demoForm) }}
+                <fieldset>
+                    <div class="form-group">
+                        {{ form_row(demoForm.email, {'id': 'floatingInput'}) }}
+                        <small id="emailHelp" class="form-text text-muted">Votre adresse email ne sera pas partagée, ni conservée.</small>
+                        <div data-lastpass-icon-root="true" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;"></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3 float-end">Demander un accès</button>
+                </fieldset>
+                {{ form_end(demoForm)}}
+            </div>
+            {#            <div class="d-flex justify-content-center my-3">#}
+            {#                <a href="{{ path('demo_index') }}" target="_blank"#}
+            {#                   class="btn btn-lg">#}
+            {#                    Accéder à l'espace de démo !#}
+            {#                </a>#}
+            {#            </div>#}
+            </p>
+        </div>
+    </div>
+</section>

@@ -267,3 +267,37 @@ a {
     opacity: 70%;
     margin: 20px;
 }
+
+.tech-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.tech-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.2);
+}
+
+.tech-icon i {
+    color: #0d6efd;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.tech-card:hover .tech-icon i {
+    color: #61dafb;
+    transform: scale(1.1);
+}
+
+.section-title h2 {
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.section-title p {
+    color: rgba(255, 255, 255, 0.6);
+}

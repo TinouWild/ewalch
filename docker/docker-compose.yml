@@ -5,7 +5,7 @@ volumes:
 
 services:
   nginx:
-    container_name: nginx
+    container_name: nginx_ewalch
     image: nginx:stable-alpine
     ports:
       - '8080:80'
@@ -16,9 +16,10 @@ services:
       - php
 
   php:
-    container_name: php
+    container_name: php_ewalch
     build:
-      context: .
+      context: ..
+      dockerfile: Dockerfile
     networks: [default]
     ports:
       - '9000:9000'
@@ -26,3 +27,20 @@ services:
     volumes:
       - ../app:/var/www/html
       - ./config/php.ini:/usr/local/etc/php/conf.d/custom.ini
+
+  database:
+    image: postgres:16
+    env_file: ['./environment/db.env']
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+
+  adminer:
+    container_name: adminer_ewalch
+    image: adminer
+    depends_on:
+      - database
+    ports:
+      - '8081:8080'
+    hostname: adminer.ewalch.test
