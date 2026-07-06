@@ -1,12 +1,24 @@
-
 .timeline {
     position: relative;
-    padding-left: 2rem;
-    border-left: 3px solid rgba(0, 0, 0, 0.1);
+    padding-left: 2.5rem;
+    border-left: 3px solid #dee2e6;
 }
 
 .timeline-item {
     position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: calc(-2.5rem - 6px);
+    top: 1.1rem;
+    width: 13px;
+    height: 13px;
+    background: #0d6efd;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 3px #dee2e6;
 }
 
 .timeline-icon {
@@ -24,11 +36,16 @@
     flex: 1;
 }
 
-/* Petites améliorations visuelles */
 @media (min-width: 768px) {
     .timeline {
         padding-left: 3rem;
     }
+
+    .timeline-item::before {
+        left: calc(-3rem - 6px);
+        top: 1.1rem;
+    }
+
     .timeline-content {
         padding-top: 0.3rem;
     }

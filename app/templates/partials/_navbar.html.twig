@@ -1,3 +1,8 @@
+<button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Menu">
+    <i class="bi bi-list"></i>
+</button>
+<div id="nav-overlay" class="nav-overlay"></div>
+
 <div id="header-navbar">
     <div class="profile">
         <img src="{{ asset('images/20230527_224322.jpg') }}" alt="picture_home"
@@ -11,12 +16,42 @@
 
     <nav id="navbar" class="nav-menu navbar">
         <ul>
-            <li><a href="{{ path('app_home_index') }}#etienne" class="nav-link scrollto active"><i class="bi bi-house"></i> <span>Accueil</span></a></li>
-            <li><a href="{{ path('app_home_index') }}#about" class="nav-link scrollto"><i class="bi bi-person"></i> <span>A propos</span></a></li>
-            <li><a href="{{ path('app_home_index') }}#portfolio" class="nav-link scrollto"><i class="bi bi-journal-album"></i> <span>Portfolio</span></a></li>
-            <li><a href="{{ path('app_home_index') }}#demo" class="nav-link scrollto"><i class="bi bi-eye"></i> <span>Démo</span></a></li>
-            <li><a href="{{ path('app_home_index') }}#experiences" class="nav-link scrollto"><i class="bi bi-body-text"></i> <span>Expériences</span></a></li>
-            <li><a href="{{ path('app_home_index') }}#contact" class="nav-link scrollto"><i class="bi bi-envelope"></i> <span>Contact</span></a></li>
+            <li><a href="#etienne" class="nav-link scrollto active"><i class="bi bi-house"></i> <span>Accueil</span></a></li>
+            <li><a href="#about" class="nav-link scrollto"><i class="bi bi-person"></i> <span>A propos</span></a></li>
+            <li><a href="#portfolio" class="nav-link scrollto"><i class="bi bi-journal-album"></i> <span>Portfolio</span></a></li>
+            <li><a href="#demo" class="nav-link scrollto"><i class="bi bi-eye"></i> <span>Démo</span></a></li>
+            <li><a href="#experiences" class="nav-link scrollto"><i class="bi bi-body-text"></i> <span>Expériences</span></a></li>
+            <li><a href="#contact" class="nav-link scrollto"><i class="bi bi-envelope"></i> <span>Contact</span></a></li>
         </ul>
     </nav>
 </div>
+
+<script>
+    (function () {
+        var toggle = document.getElementById('mobileNavToggle');
+        var nav = document.getElementById('header-navbar');
+        var overlay = document.getElementById('nav-overlay');
+
+        function openNav() {
+            nav.classList.add('mobile-open');
+            overlay.classList.add('active');
+            toggle.querySelector('i').classList.replace('bi-list', 'bi-x');
+        }
+
+        function closeNav() {
+            nav.classList.remove('mobile-open');
+            overlay.classList.remove('active');
+            toggle.querySelector('i').classList.replace('bi-x', 'bi-list');
+        }
+
+        toggle.addEventListener('click', function () {
+            nav.classList.contains('mobile-open') ? closeNav() : openNav();
+        });
+
+        overlay.addEventListener('click', closeNav);
+
+        nav.querySelectorAll('.nav-link').forEach(function (link) {
+            link.addEventListener('click', closeNav);
+        });
+    })();
+</script>

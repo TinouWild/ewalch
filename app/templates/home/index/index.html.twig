@@ -10,6 +10,11 @@
             <div class="etienne-container" data-aos="fade-in">
                 <h1>Etienne Walch</h1>
                 <span id="dev-typed"></span>
+                <p class="hero-tagline">Je conçois des applications web sur mesure, performantes et adaptées à vos besoins.</p>
+                <div class="hero-cta mt-4">
+                    <a href="#portfolio" class="btn btn-primary me-3">Voir mes projets</a>
+                    <a href="#contact" class="btn btn-outline-light">Me contacter</a>
+                </div>
             </div>
         </section>
 
@@ -24,15 +29,18 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var options = {
-                strings: ["Développeur"],
+            var typed = new Typed("#dev-typed", {
+                strings: [
+                    "Développeur PHP/Symfony",
+                    "Développeur freelance",
+                    "Expert API Platform",
+                    "Développeur web sur mesure"
+                ],
                 typeSpeed: 50,
                 backSpeed: 25,
-                backDelay: 1000,
+                backDelay: 2000,
                 loop: true
-            };
-
-            var typed = new Typed("#dev-typed", options);
+            });
         });
     </script>
 {% endblock %}

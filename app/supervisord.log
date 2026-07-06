@@ -7,3 +7,39 @@
 2026-07-06 09:32:48,978 INFO spawnerr: can't find command 'cron'
 2026-07-06 09:32:51,981 INFO spawnerr: can't find command 'cron'
 2026-07-06 09:32:51,981 INFO gave up: cron entered FATAL state, too many start retries too quickly
+2026-07-06 10:22:40,177 WARN received SIGQUIT indicating exit request
+2026-07-06 10:22:40,177 INFO waiting for php-fpm to die
+2026-07-06 10:22:40,199 INFO stopped: php-fpm (exit status 0)
+2026-07-06 10:22:41,127 INFO Set uid to user 0 succeeded
+2026-07-06 10:22:41,129 INFO supervisord started with pid 1
+2026-07-06 10:22:42,130 INFO spawnerr: can't find command 'cron'
+2026-07-06 10:22:42,132 INFO spawned: 'php-fpm' with pid 7
+2026-07-06 10:22:43,166 INFO spawnerr: can't find command 'cron'
+2026-07-06 10:22:43,166 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-07-06 10:22:45,662 INFO spawnerr: can't find command 'cron'
+2026-07-06 10:22:48,665 INFO spawnerr: can't find command 'cron'
+2026-07-06 10:22:48,666 INFO gave up: cron entered FATAL state, too many start retries too quickly
+2026-07-06 10:24:41,907 WARN received SIGQUIT indicating exit request
+2026-07-06 10:24:41,908 INFO waiting for php-fpm to die
+2026-07-06 10:24:41,919 INFO stopped: php-fpm (exit status 0)
+2026-07-06 10:24:42,873 INFO Set uid to user 0 succeeded
+2026-07-06 10:24:42,875 INFO supervisord started with pid 1
+2026-07-06 10:24:43,876 INFO spawnerr: can't find command 'cron'
+2026-07-06 10:24:43,877 INFO spawned: 'php-fpm' with pid 7
+2026-07-06 10:24:44,907 INFO spawnerr: can't find command 'cron'
+2026-07-06 10:24:44,907 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-07-06 10:24:46,910 INFO spawnerr: can't find command 'cron'
+2026-07-06 10:24:49,915 INFO spawnerr: can't find command 'cron'
+2026-07-06 10:24:49,915 INFO gave up: cron entered FATAL state, too many start retries too quickly
+2026-07-06 10:26:32,045 WARN received SIGQUIT indicating exit request
+2026-07-06 10:26:32,045 INFO waiting for php-fpm to die
+2026-07-06 10:26:32,052 INFO stopped: php-fpm (exit status 0)
+2026-07-06 10:27:27,789 INFO Set uid to user 0 succeeded
+2026-07-06 10:27:27,791 INFO supervisord started with pid 1
+2026-07-06 10:27:28,793 INFO spawnerr: can't find command 'cron'
+2026-07-06 10:27:28,794 INFO spawned: 'php-fpm' with pid 7
+2026-07-06 10:27:29,827 INFO spawnerr: can't find command 'cron'
+2026-07-06 10:27:29,828 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-07-06 10:27:31,831 INFO spawnerr: can't find command 'cron'
+2026-07-06 10:27:34,835 INFO spawnerr: can't find command 'cron'
+2026-07-06 10:27:34,836 INFO gave up: cron entered FATAL state, too many start retries too quickly

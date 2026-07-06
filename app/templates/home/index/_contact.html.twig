@@ -3,22 +3,46 @@
         <h2 class="text-black">Contact</h2>
     </div>
     <div class="container">
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <i class="bi bi-check-circle me-2"></i>{{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <i class="bi bi-exclamation-circle me-2"></i>{{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>
+            </div>
+        {% endfor %}
+
         {{ form_start(contactForm) }}
         <fieldset>
             <div class="form-group">
-                {{ form_row(contactForm.email, {'id': 'floatingInput'}) }}
-                <small id="emailHelp" class="form-text text-muted">Votre adresse email ne sera pas partagée, ni conservée.</small>
-                <div data-lastpass-icon-root="true" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;"></div>
+                {{ form_row(contactForm.email) }}
+                <small class="form-text text-muted">Votre adresse email ne sera pas partagée, ni conservée.</small>
             </div>
             <div class="form-group mt-3">
                 {{ form_row(contactForm.object) }}
             </div>
-            <div class="form-group">
-                <label for="exampleTextarea" class="form-label mt-4">Votre message :</label>
+            <div class="form-group mt-3">
+                <label class="form-label">Votre message :</label>
                 {{ form_row(contactForm.message, {'id': 'autoResizeTextarea'}) }}
             </div>
             <button type="submit" class="btn btn-primary mt-3 float-end">Envoyer</button>
         </fieldset>
-        {{ form_end(contactForm)}}
+        {{ form_end(contactForm) }}
+
+        <div class="contact-alternatives mt-5 pt-4 border-top">
+            <p class="text-muted mb-3">Vous préférez un contact direct ?</p>
+            <div class="d-flex flex-wrap gap-3">
+                <a href="https://www.linkedin.com/in/etienne-walch-07683216b/" target="_blank" class="btn btn-outline-primary">
+                    <i class="bi bi-linkedin me-2"></i>LinkedIn
+                </a>
+                <a href="https://www.instagram.com/etienne_walch/" target="_blank" class="btn btn-outline-secondary">
+                    <i class="bi bi-instagram me-2"></i>Instagram
+                </a>
+            </div>
+        </div>
     </div>
 </section>

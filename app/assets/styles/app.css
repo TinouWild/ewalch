@@ -48,25 +48,30 @@
     border-bottom: 3px solid #149ddd;
 }
 
-@media (min-width: 1024px) {
+#etienne p.hero-tagline {
+    font-size: 18px;
+    margin-bottom: 0;
+    color: rgba(255, 255, 255, 0.88);
+    max-width: 520px;
+}
+
+@media (min-width: 1025px) {
     #etienne {
         background-attachment: fixed;
     }
     #main {
         margin-left: 300px;
     }
-    #header-navbar-mobile {
-        display: none;
-    }
 }
 
-@media only screen and (max-width: 1026px) {
+@media (max-width: 1024px) {
     #header-navbar {
-        display: none;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 9999;
     }
-    .bi {
-        font-size: 2em;
-        color: black;
+    #header-navbar.mobile-open {
+        transform: translateX(0);
     }
 }
 
@@ -75,11 +80,16 @@
         font-size: 28px;
         line-height: 36px;
     }
-
     #etienne h2 {
         font-size: 18px;
         line-height: 24px;
         margin-bottom: 30px;
+    }
+    .hero-cta .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 0.5rem;
+        margin-right: 0 !important;
     }
 }
 
@@ -122,6 +132,21 @@ a {
 
 .section-title p {
     margin-bottom: 0;
+}
+
+/* Section Technologies : titres en blanc sur fond sombre */
+#technologies .section-title h2 {
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+#technologies .section-title h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#technologies .section-title p {
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .profile img {
@@ -268,6 +293,25 @@ a {
     margin: 20px;
 }
 
+/* À propos */
+.about-photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 4px solid #149ddd;
+}
+
+/* Démo */
+.demo-feature {
+    background: #f8f9fa;
+    transition: background 0.2s;
+}
+
+.demo-feature:hover {
+    background: #e9f0ff;
+}
+
+/* Technologies */
 .tech-card {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -293,11 +337,47 @@ a {
     transform: scale(1.1);
 }
 
-.section-title h2 {
-    color: #fff;
-    letter-spacing: 1px;
+/* Mobile nav toggle — caché par défaut (desktop), visible sur mobile */
+.mobile-nav-toggle {
+    display: none;
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    z-index: 10000;
+    background: #149ddd;
+    border: none;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
 }
 
-.section-title p {
-    color: rgba(255, 255, 255, 0.6);
+@media (max-width: 1024px) {
+    .mobile-nav-toggle {
+        display: flex;
+    }
+}
+
+.mobile-nav-toggle .bi {
+    font-size: 1.4rem;
+    color: #fff;
+    line-height: 1;
+}
+
+.nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 300px;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+}
+
+.nav-overlay.active {
+    display: block;
 }
