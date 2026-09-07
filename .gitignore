@@ -5,3 +5,4 @@ ewalch_*.tar.zst
 .last_build
 
 /docker/data/
+/docker/environment/*.local

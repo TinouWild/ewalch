@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -19,9 +20,9 @@ class HomeController extends AbstractController
      * @throws TransportExceptionInterface
      */
     #[Route('/', name: 'app_home_index')]
-    public function index(Request $request, BrevoMailer $brevoMailer): Response
+    public function index(Request $request, BrevoMailer $brevoMailer, FormFactoryInterface $formFactory): Response
     {
-        $contactForm = $this->createFormBuilder()
+        $contactForm = $formFactory->createNamedBuilder('contact_form')
             ->add('email', EmailType::class, [
                 'required' => true,
                 'label' => false,
@@ -45,12 +46,12 @@ class HomeController extends AbstractController
 
         $contactForm->handleRequest($request);
         if ($contactForm->isSubmitted() && $contactForm->isValid()) {
-            $brevoMailer->sendMail($contactForm);
+            $brevoMailer->sendContactFormMail($contactForm);
             $this->addFlash('success', "Votre message a été envoyé avec succès !");
             return $this->redirectToRoute('app_home_index');
         }
 
-        $demoForm = $this->createFormBuilder()
+        $demoForm = $formFactory->createNamedBuilder('demo_form')
             ->add('email', EmailType::class, [
                 'required' => true,
                 'label' => false,
@@ -61,8 +62,8 @@ class HomeController extends AbstractController
             ->getForm();
         $demoForm->handleRequest($request);
         if ($demoForm->isSubmitted() && $demoForm->isValid()) {
-//            $brevoMailer->sendMail($contactForm);
-//            $this->addFlash('success', "Votre message a été envoyé avec succès !");
+            $brevoMailer->sendDemoFormMail($demoForm);
+            $this->addFlash('success', "Votre demande a été envoyée avec succès !");
             return $this->redirectToRoute('app_home_index');
         }
 

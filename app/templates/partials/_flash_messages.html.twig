@@ -1,0 +1,31 @@
+{# Pop-up (toasts Bootstrap) affichant les messages flash Symfony #}
+{% set flash_config = {
+    'success': { 'icon': 'bi-check-circle-fill',        'bg': 'text-bg-success'   },
+    'error':   { 'icon': 'bi-exclamation-triangle-fill', 'bg': 'text-bg-danger'    },
+    'danger':  { 'icon': 'bi-exclamation-triangle-fill', 'bg': 'text-bg-danger'    },
+    'warning': { 'icon': 'bi-exclamation-circle-fill',   'bg': 'text-bg-warning'   },
+    'info':    { 'icon': 'bi-info-circle-fill',          'bg': 'text-bg-info'      },
+    'notice':  { 'icon': 'bi-info-circle-fill',          'bg': 'text-bg-primary'   },
+} %}
+
+{% set flashes = app.flashes %}
+{% if flashes is not empty %}
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1090;">
+        {% for type, messages in flashes %}
+            {% set cfg = flash_config[type] ?? { 'icon': 'bi-bell-fill', 'bg': 'text-bg-secondary' } %}
+            {% for message in messages %}
+                <div class="toast align-items-center border-0 {{ cfg.bg }}"
+                     role="alert" aria-live="assertive" aria-atomic="true"
+                     data-bs-delay="6000">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            <i class="bi {{ cfg.icon }} me-2"></i>{{ message }}
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                                data-bs-dismiss="toast" aria-label="Fermer"></button>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+{% endif %}

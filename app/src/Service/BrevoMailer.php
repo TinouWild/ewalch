@@ -17,17 +17,8 @@ class BrevoMailer
         $this->brevoApiKey = $brevoApiKey;
     }
 
-    /**
-     * @throws TransportExceptionInterface
-     */
-    public function sendMail(FormInterface $form): void
+    private function send(string $object, string $content): void
     {
-        $data = $form->getViewData();
-        $content = "<html><head></head><body>";
-        $content .= "<h1>Message de : " . $data['email'] . "</h1>";
-        $content .= "<p>Message : " . $data['message'] . "</p>";
-        $content .= "</body></html>";
-
         $this->httpClient->request(
             'POST',
             'https://api.brevo.com/v3/smtp/email',
@@ -47,10 +38,33 @@ class BrevoMailer
                             "email" =>"tinouclt@gmail.com"
                         ]
                     ],
-                    "subject" => $data['object'],
+                    "subject" => $object,
                     "htmlContent" => $content
                 ]
             ]
         );
+    }
+
+    /**
+     * @param FormInterface $form
+     * @return void
+     */
+    public function sendContactFormMail(FormInterface $form): void
+    {
+        $data = $form->getViewData();
+        $content = "<html><head></head><body>";
+        $content .= "<h1>Message de : " . $data['email'] . "</h1>";
+        $content .= "<p>Message : " . $data['message'] . "</p>";
+        $content .= "</body></html>";
+        $this->send($data['object'], $content);
+    }
+
+    public function sendDemoFormMail(FormInterface $form): void
+    {
+        $data = $form->getViewData();
+        $content = "<html><head></head><body>";
+        $content .= "<h1>" . $data['email'] . " souhaite faire une demo sur etiennewalch.fr</h1>";
+        $content .= "</body></html>";
+        $this->send('Demande de demo', $content);
     }
 }

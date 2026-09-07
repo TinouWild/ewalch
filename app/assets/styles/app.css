@@ -3,8 +3,12 @@
 }
 
 #etienne {
-    width: 100%;
-    height: 100vh;
+    /* Sort le hero des gouttières de .container-fluid pour un affichage pleine largeur */
+    width: auto;
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+    padding: 60px 1.25rem;
+    min-height: 100vh;
     background: url("../images/cover_front.jpg") top center;
     background-size: cover;
 }

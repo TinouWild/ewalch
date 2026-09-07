@@ -55,3 +55,32 @@
 2026-09-07 04:41:58,704 INFO spawnerr: can't find command 'cron'
 2026-09-07 04:42:01,709 INFO spawnerr: can't find command 'cron'
 2026-09-07 04:42:01,709 INFO gave up: cron entered FATAL state, too many start retries too quickly
+2026-09-07 08:13:41,203 WARN received SIGQUIT indicating exit request
+2026-09-07 08:13:41,204 INFO waiting for php-fpm to die
+2026-09-07 08:13:41,218 INFO stopped: php-fpm (exit status 0)
+2026-09-07 08:13:42,149 INFO Set uid to user 0 succeeded
+2026-09-07 08:13:42,151 INFO supervisord started with pid 1
+2026-09-07 08:13:43,156 INFO spawned: 'cron' with pid 7
+2026-09-07 08:13:43,158 INFO spawned: 'php-fpm' with pid 8
+2026-09-07 08:13:44,186 INFO success: cron entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-09-07 08:13:44,186 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-09-07 08:17:01,443 WARN received SIGQUIT indicating exit request
+2026-09-07 08:17:01,444 INFO waiting for cron, php-fpm to die
+2026-09-07 08:17:01,454 INFO stopped: php-fpm (exit status 0)
+2026-09-07 08:17:01,455 WARN stopped: cron (terminated by SIGTERM)
+2026-09-07 08:17:02,534 INFO Set uid to user 0 succeeded
+2026-09-07 08:17:02,536 INFO supervisord started with pid 1
+2026-09-07 08:17:03,539 INFO spawned: 'cron' with pid 7
+2026-09-07 08:17:03,542 INFO spawned: 'php-fpm' with pid 8
+2026-09-07 08:17:04,573 INFO success: cron entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-09-07 08:17:04,573 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-09-07 08:38:17,780 WARN received SIGQUIT indicating exit request
+2026-09-07 08:38:17,780 INFO waiting for cron, php-fpm to die
+2026-09-07 08:38:17,792 INFO stopped: php-fpm (exit status 0)
+2026-09-07 08:38:17,793 WARN stopped: cron (terminated by SIGTERM)
+2026-09-07 08:38:18,705 INFO Set uid to user 0 succeeded
+2026-09-07 08:38:18,706 INFO supervisord started with pid 1
+2026-09-07 08:38:19,711 INFO spawned: 'cron' with pid 7
+2026-09-07 08:38:19,714 INFO spawned: 'php-fpm' with pid 8
+2026-09-07 08:38:20,744 INFO success: cron entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-09-07 08:38:20,745 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)

@@ -25,4 +25,4 @@ services:
 
     App\Service\BrevoMailer:
         arguments:
-            $brevoApiKey: '%env(BREVO_API_KEY)%'
+            $brevoApiKey: '%env(resolve:BREVO_API_KEY)%'

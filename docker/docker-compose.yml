@@ -24,7 +24,10 @@ services:
     networks: [default]
     ports:
       - '9000:9000'
-    env_file: ['./environment/api.env']
+    env_file:
+      - ./environment/api.env
+      - path: ./environment/api.env.local
+        required: false
     volumes:
       - ../app:/var/www/html
       - ./config/php.ini:/usr/local/etc/php/conf.d/custom.ini
