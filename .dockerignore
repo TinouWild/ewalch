@@ -1,0 +1,16 @@
+.git
+.idea
+.claude
+*.md
+*.tar.gz
+*.tar.zst
+
+docker/data
+docker/environment
+
+app/var
+app/vendor
+app/node_modules
+app/.env.local
+app/.env.*.local
+app/supervisord.log

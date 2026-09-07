@@ -1,5 +1,7 @@
 .idea
 
-ewalch_latest.tar.gz
+ewalch_*.tar.gz
+ewalch_*.tar.zst
+.last_build
 
 /docker/data/

@@ -20,6 +20,7 @@ services:
     build:
       context: ..
       dockerfile: Dockerfile
+      target: dev
     networks: [default]
     ports:
       - '9000:9000'
