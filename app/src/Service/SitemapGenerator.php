@@ -24,7 +24,7 @@ class SitemapGenerator
             $urls = [
                 [
                     'loc' => $this->urlGenerator->generate('app_home_index', [], UrlGeneratorInterface::ABSOLUTE_URL),
-                    'lastmod' => (new \DateTime())->format('Y-m-d'),
+                    'lastmod' => '2026-07-06',
                     'changefreq' => 'weekly',
                     'priority' => '1.0',
                 ],
@@ -56,7 +56,7 @@ class SitemapGenerator
             echo "User-agent: *" . PHP_EOL;
             echo "Disallow: /admin/" . PHP_EOL;
             echo "Disallow: /login/" . PHP_EOL;
-            echo "Disallow: /beta/" . PHP_EOL;
+            echo "Disallow: /demo/" . PHP_EOL;
             echo PHP_EOL;
             echo "Sitemap: " . htmlspecialchars($sitemapUrl) . PHP_EOL;
         });

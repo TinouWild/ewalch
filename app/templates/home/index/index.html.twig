@@ -1,6 +1,6 @@
 {% extends '/home/base.html.twig' %}
 
-{% block title %}Accueil{% endblock %}
+{# Titre par défaut dans base.html.twig, pas besoin de le redéfinir ici #}
 
 {% block body %}
     <div class="container-fluid">
@@ -27,20 +27,4 @@
         </main>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var typed = new Typed("#dev-typed", {
-                strings: [
-                    "Développeur PHP/Symfony",
-                    "Développeur freelance",
-                    "Expert API Platform",
-                    "Développeur web sur mesure"
-                ],
-                typeSpeed: 50,
-                backSpeed: 25,
-                backDelay: 2000,
-                loop: true
-            });
-        });
-    </script>
 {% endblock %}

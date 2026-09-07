@@ -8,6 +8,7 @@
 import './bootstrap.js'
 import './backToTop.js'
 import './textarea.js'
+import './typed-init.js'
 
 import './styles/morph.css'
 import './styles/app.css'

@@ -1,29 +1,124 @@
 <!DOCTYPE html>
-<html lang="FR-fr">
+<html lang="fr">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
-    <meta name="description" content="Développeur web passionné, je conçois des sites modernes, performants et
-    sur-mesure. Besoin d'un site vitrine ou d'une application web ? Découvrez mes services et réalisations." />
-    <title>Etienne Walch, développeur web Mulhouse - {% block title %}{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {# ── Google Analytics ────────────────────────────────────────────────── #}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5S1BBC6WZ1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5S1BBC6WZ1');
+    </script>
+
+    {# ── Titre & meta description ─────────────────────────────────────────── #}
+    <title>{% block title %}Etienne Walch — Développeur PHP/Symfony freelance à Mulhouse{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}Développeur web PHP/Symfony freelance basé à Mulhouse. Je conçois des applications web sur mesure, performantes et adaptées à vos besoins.{% endblock %}">
+
+    {# ── Canonique ────────────────────────────────────────────────────────── #}
+    <link rel="canonical" href="{% block canonical %}{{ url('app_home_index') }}{% endblock %}">
+
+    {# ── Open Graph ───────────────────────────────────────────────────────── #}
+    <meta property="og:type"        content="{% block og_type %}website{% endblock %}">
+    <meta property="og:url"         content="{% block og_url %}{{ url('app_home_index') }}{% endblock %}">
+    <meta property="og:title"       content="{% block og_title %}Etienne Walch — Développeur PHP/Symfony freelance{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Développeur web PHP/Symfony freelance à Mulhouse. Applications web sur mesure, performantes et adaptées à vos besoins.{% endblock %}">
+    <meta property="og:image"       content="{% block og_image %}{{ absolute_url(asset('images/20230527_224322.jpg')) }}{% endblock %}">
+    <meta property="og:locale"      content="fr_FR">
+    <meta property="og:site_name"   content="Etienne Walch">
+
+    {# ── Twitter Card ─────────────────────────────────────────────────────── #}
+    <meta name="twitter:card"        content="summary">
+    <meta name="twitter:title"       content="{% block twitter_title %}Etienne Walch — Développeur PHP/Symfony freelance{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}Développeur web PHP/Symfony freelance à Mulhouse. Applications web sur mesure.{% endblock %}">
+    <meta name="twitter:image"       content="{% block twitter_image %}{{ absolute_url(asset('images/20230527_224322.jpg')) }}{% endblock %}">
+
+    {# ── Données structurées JSON-LD ──────────────────────────────────────── #}
+    {% block structured_data %}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Person",
+                "@id": "{{ url('app_home_index') }}#person",
+                "name": "Etienne Walch",
+                "jobTitle": "Développeur PHP/Symfony freelance",
+                "description": "Développeur web PHP/Symfony freelance basé à Mulhouse, spécialisé dans la création d'applications web sur mesure pour particuliers et entreprises.",
+                "url": "{{ url('app_home_index') }}",
+                "image": "{{ absolute_url(asset('images/20230527_224322.jpg')) }}",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Mulhouse",
+                    "addressRegion": "Grand Est",
+                    "addressCountry": "FR"
+                },
+                "sameAs": [
+                    "https://www.linkedin.com/in/etienne-walch-07683216b/",
+                    "https://www.instagram.com/etienne_walch/"
+                ],
+                "knowsAbout": ["PHP", "Symfony", "PostgreSQL", "Docker", "API Platform", "Twig", "Bootstrap"]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "{{ url('app_home_index') }}#website",
+                "url": "{{ url('app_home_index') }}",
+                "name": "Etienne Walch — Développeur PHP/Symfony",
+                "description": "Portfolio et vitrine d'Etienne Walch, développeur web PHP/Symfony freelance basé à Mulhouse.",
+                "inLanguage": "fr-FR",
+                "author": { "@id": "{{ url('app_home_index') }}#person" }
+            },
+            {
+                "@type": "ProfessionalService",
+                "@id": "{{ url('app_home_index') }}#service",
+                "name": "Etienne Walch — Développement web PHP/Symfony",
+                "description": "Développement d'applications web sur mesure en PHP/Symfony : sites vitrines, e-commerce, back-office, API REST.",
+                "url": "{{ url('app_home_index') }}",
+                "serviceType": "Développement web sur mesure",
+                "areaServed": {
+                    "@type": "City",
+                    "name": "Mulhouse",
+                    "sameAs": "https://www.wikidata.org/wiki/Q5715"
+                },
+                "provider": { "@id": "{{ url('app_home_index') }}#person" },
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "Services de développement web",
+                    "itemListElement": [
+                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Site vitrine PHP/Symfony" } },
+                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Application web sur mesure" } },
+                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "API REST / API Platform" } },
+                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Back-office & administration" } }
+                    ]
+                }
+            }
+        ]
+    }
+    </script>
+    {% endblock %}
+
+    {# ── Favicon ──────────────────────────────────────────────────────────── #}
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
 
+    {# ── CSS ──────────────────────────────────────────────────────────────── #}
     {% block stylesheets %}{% endblock %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
+    {# Bootstrap Icons — non-bloquant #}
+    <link rel="preload" as="style"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    </noscript>
 
     {% block javascripts %}{% endblock %}
     {% block importmap %}{{ importmap('app') }}{% endblock %}
-    <script src="https://kit.fontawesome.com/126882865c.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    {# FontAwesome — différé #}
+    <script defer src="https://kit.fontawesome.com/126882865c.js" crossorigin="anonymous"></script>
 </head>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5S1BBC6WZ1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-5S1BBC6WZ1');
-</script>
 
 <body>
 <button id="backToTopBtn" title="Retour en haut"><i class="fa-solid fa-caret-up"></i></button>

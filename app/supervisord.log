@@ -43,3 +43,6 @@
 2026-07-06 10:27:31,831 INFO spawnerr: can't find command 'cron'
 2026-07-06 10:27:34,835 INFO spawnerr: can't find command 'cron'
 2026-07-06 10:27:34,836 INFO gave up: cron entered FATAL state, too many start retries too quickly
+2026-07-09 10:38:31,928 WARN received SIGQUIT indicating exit request
+2026-07-09 10:38:31,933 INFO waiting for php-fpm to die
+2026-07-09 10:38:31,942 INFO stopped: php-fpm (exit status 0)
