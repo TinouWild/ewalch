@@ -1,32 +1,38 @@
-<section id="about" class="about">
-    <div class="section-title">
-        <h2 class="text-black">A propos</h2>
-    </div>
-    <div class="row align-items-center g-4 mx-md-3 mb-md-3 mb-2">
-        <div class="col-md-4 text-center">
-            <img src="{{ asset('images/20230527_224322.jpg') }}" alt="Etienne Walch" class="rounded-circle about-photo">
+<section id="about" class="about" aria-labelledby="about-title">
+    <div class="container">
+        <div class="section-title">
+            <h2 id="about-title">À propos</h2>
         </div>
-        <div class="col-md-8">
-            <h5 class="fw-bold mb-3">Bienvenue sur mon univers digital !</h5>
-            <p class="justify-text mb-3">
-                Je m'appelle Etienne, <strong>développeur web passionné</strong> et curieux de nature.
-                Après une carrière dans l'Éducation Nationale, j'ai suivi ma passion pour le code et la
-                technologie, me lançant dans une reconversion réussie en tant que développeur. Basé dans une
-                région tropicale nichée entre l'Allemagne et la Suisse, j'aime explorer et apprendre
-                continuellement. Le <strong>développement web</strong> est pour moi bien plus qu'un métier :
-                c'est un terrain d'expérimentation où chaque projet est une nouvelle aventure. Mon objectif ?
-                Offrir des <strong>solutions digitales sur-mesure</strong> à ceux qui veulent bâtir leur
-                présence en ligne.
-            </p>
-            <div class="d-flex flex-wrap gap-2 mb-4">
-                <span class="badge rounded-pill bg-primary px-3 py-2">+5 ans d'expérience</span>
-                <span class="badge rounded-pill bg-dark px-3 py-2">PHP / Symfony</span>
-                <span class="badge rounded-pill bg-dark px-3 py-2">3 projets livrés</span>
-                <span class="badge rounded-pill bg-secondary px-3 py-2">Freelance</span>
+        <div class="row g-4 align-items-start">
+            <div class="col-lg-8">
+                <p class="about-accroche">Avant d'écrire du code, j'ai enseigné.</p>
+                <p>
+                    Je m'appelle Etienne. J'ai commencé ma carrière dans l'Éducation Nationale. J'y ai appris ce
+                    qui fait, encore aujourd'hui, le cœur de mon travail&nbsp;: <strong>écouter</strong>, comprendre
+                    ce dont l'autre a vraiment besoin, et <strong>expliquer clairement</strong>, sans jargon.
+                </p>
+                <p>
+                    Je me suis ensuite reconverti dans le développement web. Depuis <strong>plus de 5 ans</strong>,
+                    je conçois en entreprise des API et des applications métier&nbsp;: des outils utilisés tous les
+                    jours, qui doivent être fiables, sécurisés et durables.
+                </p>
+                <p>
+                    Aujourd'hui, je me lance en indépendant pour mettre cette double expérience au service des TPE,
+                    PME, artisans et indépendants. Je suis basé à <strong>Mulhouse, en Alsace</strong>, et je
+                    travaille aussi à distance, partout en France.
+                </p>
+                <a href="https://www.linkedin.com/in/etienne-walch-07683216b/" target="_blank" rel="noopener" class="btn btn-primary mt-2">
+                    <i class="bi bi-linkedin me-2" aria-hidden="true"></i>Me retrouver sur LinkedIn<span class="visually-hidden"> (nouvel onglet)</span>
+                </a>
             </div>
-            <a href="https://www.linkedin.com/in/etienne-walch-07683216b/" target="_blank" class="btn btn-primary">
-                <i class="bi bi-linkedin me-2"></i>Me retrouver sur LinkedIn
-            </a>
+            <div class="col-lg-4">
+                <ul class="about-atouts">
+                    <li><i class="bi bi-award" aria-hidden="true"></i><span><strong>+5 ans d'expérience</strong> en développement</span></li>
+                    <li><i class="bi bi-mortarboard" aria-hidden="true"></i><span><strong>Ancien enseignant</strong> : pédagogie et écoute</span></li>
+                    <li><i class="bi bi-geo-alt" aria-hidden="true"></i><span><strong>Basé à Mulhouse</strong>, en Alsace</span></li>
+                    <li><i class="bi bi-laptop" aria-hidden="true"></i><span><strong>Partout en France</strong>, à distance</span></li>
+                </ul>
+            </div>
         </div>
     </div>
 </section>

@@ -1,52 +1,44 @@
+/* Parcours : frise verticale compacte */
 .timeline {
     position: relative;
-    padding-left: 2.5rem;
-    border-left: 3px solid #dee2e6;
+    padding-left: 1.75rem;
+    border-left: 3px solid #bcd3f2;
 }
 
 .timeline-item {
     position: relative;
+    padding-bottom: 1.25rem;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
 }
 
 .timeline-item::before {
     content: '';
     position: absolute;
-    left: calc(-2.5rem - 6px);
-    top: 1.1rem;
+    left: calc(-1.75rem - 8px);
+    top: 0.35rem;
     width: 13px;
     height: 13px;
-    background: #0d6efd;
+    background: #1d64c8;
     border-radius: 50%;
-    border: 2px solid #fff;
-    box-shadow: 0 0 0 3px #dee2e6;
+    box-shadow: 0 0 0 3px #f5f8fd;
 }
 
-.timeline-icon {
-    position: relative;
-    z-index: 2;
+.timeline-item h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #173b6c;
+    margin-bottom: 0.15rem;
 }
 
-.timeline-icon .badge {
-    font-size: 1.3rem;
-    background: linear-gradient(135deg, #0d6efd, #6610f2);
-    box-shadow: 0 0 10px rgba(13, 110, 253, 0.3);
+.timeline-item .timeline-dates {
+    font-size: 0.85rem;
+    color: #5a6577;
+    margin-bottom: 0.35rem;
 }
 
-.timeline-content {
-    flex: 1;
-}
-
-@media (min-width: 768px) {
-    .timeline {
-        padding-left: 3rem;
-    }
-
-    .timeline-item::before {
-        left: calc(-3rem - 6px);
-        top: 1.1rem;
-    }
-
-    .timeline-content {
-        padding-top: 0.3rem;
-    }
+.timeline-item p {
+    margin-bottom: 0;
 }
