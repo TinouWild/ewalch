@@ -10,6 +10,7 @@
                     'id': 'fitcookies',
                     'nom': 'Les fit cookies de la petite Marie',
                     'url': 'https://lesfitcookiesdelapetitemarie.fr',
+                    'isActive': true,
                     'image': 'fitcookies',
                     'alt': "Page d'accueil de la boutique en ligne Les fit cookies de la petite Marie",
                     'resultat': "Une créatrice qui vend désormais en ligne, en toute autonomie.",
@@ -21,6 +22,7 @@
                     'id': 'titine',
                     'nom': 'Titine Créations',
                     'url': 'https://titine-creations.fr',
+                    'isActive': true,
                     'image': 'titine',
                     'alt': "Galerie en ligne de Titine Créations présentant des peintures réalisées au couteau",
                     'resultat': "Une artiste qui expose et gère elle-même ses œuvres en ligne.",
@@ -32,6 +34,7 @@
                     'id': 'scoringames',
                     'nom': 'Scoringames',
                     'url': 'https://scoringames.com',
+                    'isActive': false,
                     'image': 'scoringames',
                     'alt': "Page d'accueil de la plateforme communautaire Scoringames dédiée aux jeux de société",
                     'resultat': "Une plateforme communautaire complète pour les passionnés de jeux de société.",
@@ -55,10 +58,6 @@
                             <h3 id="projet-{{ projet.id }}-titre">{{ projet.nom }}</h3>
                             <p class="projet-resultat">{{ projet.resultat }}</p>
                             <p>{{ projet.texte }}</p>
-                            <blockquote class="temoignage">
-                                {# À COMPLÉTER : témoignage client pour {{ projet.nom }} #}
-                                <span class="a-completer">[À COMPLÉTER : témoignage client]</span>
-                            </blockquote>
                             <ul class="projet-badges" aria-label="Ce qui a été mis en place">
                                 {% for badge in projet.badges %}
                                     <li>{{ badge }}</li>
@@ -69,10 +68,17 @@
                                         data-bs-target="#{{ projet.id }}modal">
                                     En savoir plus<span class="visually-hidden"> sur {{ projet.nom }}</span>
                                 </button>
-                                <a href="{{ projet.url }}" target="_blank" rel="noopener" class="btn btn-outline-dark">
-                                    Voir le site<span class="visually-hidden"> {{ projet.nom }} (nouvel onglet)</span>
-                                    <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i>
-                                </a>
+                                {% if projet.isActive ?? true %}
+                                    <a href="{{ projet.url }}" target="_blank" rel="noopener" class="btn btn-outline-dark">
+                                        Voir le site<span class="visually-hidden"> {{ projet.nom }} (nouvel onglet)</span>
+                                        <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i>
+                                    </a>
+                                {% else %}
+                                    <button type="button" class="btn btn-outline-dark" disabled>
+                                        Voir le site<span class="visually-hidden"> {{ projet.nom }} (site actuellement hors ligne)</span>
+                                        <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i>
+                                    </button>
+                                {% endif %}
                             </div>
                         </div>
                     </article>

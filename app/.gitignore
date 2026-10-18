@@ -12,3 +12,8 @@
 /public/assets/
 /assets/vendor/
 ###< symfony/asset-mapper ###
+
+###> supervisord (anciens fichiers, désormais dans /var/log et /var/run du conteneur) ###
+/supervisord.log
+/supervisord.pid
+###< supervisord ###

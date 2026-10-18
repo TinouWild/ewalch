@@ -49,6 +49,7 @@ COPY --from=ext-builder /usr/local/lib/php/extensions /usr/local/lib/php/extensi
 COPY --from=ext-builder /usr/local/etc/php/conf.d /usr/local/etc/php/conf.d
 COPY docker/config/opcache.prod.ini /usr/local/etc/php/conf.d/zz-opcache.ini
 COPY docker/config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY --chmod=755 docker/config/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
 WORKDIR /var/www/html
 COPY app/ ./
@@ -57,6 +58,7 @@ COPY --from=vendor /app/vendor ./vendor
 RUN mkdir -p var/cache var/log \
     && chown -R www-data:www-data var
 
+ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["supervisord", "-n", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
 
 ##### Stage 4: local dev image (used by docker/docker-compose.yml) #####

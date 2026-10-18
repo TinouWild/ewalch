@@ -23,9 +23,15 @@
                 </ul>
             </div>
             <div class="modal-footer">
-                <a href="https://titine-creations.fr" target="_blank" rel="noopener" class="btn btn-outline-dark">
-                    Voir le site<span class="visually-hidden"> (nouvel onglet)</span> <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i>
-                </a>
+                {% if projet.isActive ?? true %}
+                    <a href="https://titine-creations.fr" target="_blank" rel="noopener" class="btn btn-outline-dark">
+                        Voir le site<span class="visually-hidden"> (nouvel onglet)</span> <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i>
+                    </a>
+                {% else %}
+                    <button type="button" class="btn btn-outline-dark" disabled>
+                        Voir le site<span class="visually-hidden"> (site actuellement hors ligne)</span> <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i>
+                    </button>
+                {% endif %}
                 <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Fermer</button>
             </div>
         </div>

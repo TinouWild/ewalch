@@ -40,6 +40,9 @@ class Project
     #[ORM\Column(type: Types::STRING, length: 255)]
     private ?string $url = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?bool $isActive = null;
+
     public function getId(): ?UuidV4
     {
         return $this->id;
@@ -113,6 +116,18 @@ class Project
     public function setUrl(string $url): static
     {
         $this->url = $url;
+
+        return $this;
+    }
+
+    public function isActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(?bool $isActive): static
+    {
+        $this->isActive = $isActive;
 
         return $this;
     }
