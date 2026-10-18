@@ -1,29 +1,43 @@
-<button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Menu">
-    <i class="bi bi-list"></i>
+<button class="mobile-nav-toggle" id="mobileNavToggle" type="button"
+        aria-label="Ouvrir le menu" aria-controls="header-navbar" aria-expanded="false">
+    <i class="bi bi-list" aria-hidden="true"></i>
 </button>
+<a href="{{ path('app_home_index') }}#contact" class="btn btn-primary mobile-cta">Parlons de votre projet</a>
 <div id="nav-overlay" class="nav-overlay"></div>
 
 <div id="header-navbar">
     <div class="profile">
-        <img src="{{ asset('images/20230527_224322.jpg') }}" alt="Portrait d'Etienne Walch, développeur PHP/Symfony freelance"
-             class="img-fluid rounded-circle">
+        <picture>
+            <source type="image/webp" srcset="{{ asset('images/portrait-240.webp') }} 240w, {{ asset('images/portrait-480.webp') }} 480w" sizes="120px">
+            <img src="{{ asset('images/portrait-480.jpg') }}" width="120" height="120"
+                 alt="Portrait d'Etienne Walch, développeur web freelance à Mulhouse"
+                 class="img-fluid rounded-circle">
+        </picture>
         <p class="profile-name"><a href="{{ path('app_home_index') }}">Etienne Walch</a></p>
+        <p class="profile-tagline">Développeur web freelance<br>Mulhouse · Alsace</p>
         <div class="social-links mt-3 text-center">
-            <a href="https://www.instagram.com/etienne_walch/" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/etienne-walch-07683216b/" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            {# À COMPLÉTER : garder ou retirer le lien Instagram #}
+            <a href="https://www.instagram.com/etienne_walch/" target="_blank" rel="noopener" class="instagram" aria-label="Instagram (nouvel onglet)"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/in/etienne-walch-07683216b/" target="_blank" rel="noopener" class="linkedin" aria-label="LinkedIn (nouvel onglet)"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
         </div>
     </div>
 
-    <nav id="navbar" class="nav-menu navbar">
+    <nav id="navbar" class="nav-menu navbar" aria-label="Navigation principale">
         <ul>
-            <li><a href="#etienne" class="nav-link scrollto active"><i class="bi bi-house"></i> <span>Accueil</span></a></li>
-            <li><a href="#about" class="nav-link scrollto"><i class="bi bi-person"></i> <span>A propos</span></a></li>
-            <li><a href="#portfolio" class="nav-link scrollto"><i class="bi bi-journal-album"></i> <span>Portfolio</span></a></li>
-            <li><a href="#demo" class="nav-link scrollto"><i class="bi bi-eye"></i> <span>Démo</span></a></li>
-            <li><a href="#experiences" class="nav-link scrollto"><i class="bi bi-body-text"></i> <span>Expériences</span></a></li>
-            <li><a href="#contact" class="nav-link scrollto"><i class="bi bi-envelope"></i> <span>Contact</span></a></li>
+            <li><a href="{{ path('app_home_index') }}#etienne" class="nav-link scrollto active"><i class="bi bi-house" aria-hidden="true"></i> <span>Accueil</span></a></li>
+            <li><a href="{{ path('app_home_index') }}#services" class="nav-link scrollto"><i class="bi bi-tools" aria-hidden="true"></i> <span>Services</span></a></li>
+            <li><a href="{{ path('app_home_index') }}#offres" class="nav-link scrollto"><i class="bi bi-tags" aria-hidden="true"></i> <span>Offres</span></a></li>
+            <li><a href="{{ path('app_home_index') }}#portfolio" class="nav-link scrollto"><i class="bi bi-journal-album" aria-hidden="true"></i> <span>Réalisations</span></a></li>
+            <li><a href="{{ path('app_home_index') }}#about" class="nav-link scrollto"><i class="bi bi-person" aria-hidden="true"></i> <span>À propos</span></a></li>
+            <li><a href="{{ path('app_home_index') }}#contact" class="nav-link scrollto"><i class="bi bi-envelope" aria-hidden="true"></i> <span>Contact</span></a></li>
         </ul>
     </nav>
+
+    <div class="nav-cta">
+        <a href="{{ path('app_home_index') }}#contact" class="btn btn-primary w-100 nav-link">
+            <i class="bi bi-chat-dots me-2" aria-hidden="true"></i>Parlons de votre projet
+        </a>
+    </div>
 </div>
 
 <script>
@@ -36,12 +50,16 @@
             nav.classList.add('mobile-open');
             overlay.classList.add('active');
             toggle.querySelector('i').classList.replace('bi-list', 'bi-x');
+            toggle.setAttribute('aria-expanded', 'true');
+            toggle.setAttribute('aria-label', 'Fermer le menu');
         }
 
         function closeNav() {
             nav.classList.remove('mobile-open');
             overlay.classList.remove('active');
             toggle.querySelector('i').classList.replace('bi-x', 'bi-list');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.setAttribute('aria-label', 'Ouvrir le menu');
         }
 
         toggle.addEventListener('click', function () {
@@ -49,6 +67,13 @@
         });
 
         overlay.addEventListener('click', closeNav);
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && nav.classList.contains('mobile-open')) {
+                closeNav();
+                toggle.focus();
+            }
+        });
 
         nav.querySelectorAll('.nav-link').forEach(function (link) {
             link.addEventListener('click', closeNav);

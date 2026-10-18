@@ -176,6 +176,41 @@ a {
     text-decoration: none;
 }
 
+.profile-tagline {
+    margin: 6px 0 0;
+    color: #a8a9b4;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* Bouton d'appel à l'action en bas du menu latéral */
+.nav-cta {
+    padding: 10px 15px 30px;
+}
+
+.nav-cta .btn {
+    white-space: normal;
+}
+
+/* Bouton d'appel à l'action visible sur mobile (menu latéral masqué) */
+.mobile-cta {
+    display: none;
+    position: fixed;
+    top: 14px;
+    right: 66px;
+    z-index: 9998;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 1024px) {
+    .mobile-cta {
+        display: inline-block;
+    }
+}
+
 .profile .social-links a {
     font-size: 18px;
     display: inline-block;
