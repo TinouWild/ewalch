@@ -26,3 +26,7 @@ services:
     App\Service\BrevoMailer:
         arguments:
             $brevoApiKey: '%env(resolve:BREVO_API_KEY)%'
+
+    App\Service\SitemapGenerator:
+        arguments:
+            $siteUrl: '%env(SITE_URL)%'

@@ -14,83 +14,93 @@
     </script>
 
     {# ── Titre & meta description ─────────────────────────────────────────── #}
-    <title>{% block title %}Etienne Walch — Développeur PHP/Symfony freelance à Mulhouse{% endblock %}</title>
-    <meta name="description" content="{% block meta_description %}Développeur web PHP/Symfony freelance basé à Mulhouse. Je conçois des applications web sur mesure, performantes et adaptées à vos besoins.{% endblock %}">
+    {# Les URL absolues utilisent site_url (SITE_URL, https) et non le schéma de la requête #}
+    <title>{% block title %}Etienne Walch — Développeur web freelance à Mulhouse | Sites et outils sur mesure{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}Sites et outils métier sur mesure, livrés rapidement grâce à l'IA, par un développeur expérimenté basé à Mulhouse. Premier échange gratuit et sans engagement.{% endblock %}">
 
     {# ── Canonique ────────────────────────────────────────────────────────── #}
-    <link rel="canonical" href="{% block canonical %}{{ url('app_home_index') }}{% endblock %}">
+    <link rel="canonical" href="{% block canonical %}{{ site_url }}{{ path('app_home_index') }}{% endblock %}">
 
     {# ── Open Graph ───────────────────────────────────────────────────────── #}
     <meta property="og:type"        content="{% block og_type %}website{% endblock %}">
-    <meta property="og:url"         content="{% block og_url %}{{ url('app_home_index') }}{% endblock %}">
-    <meta property="og:title"       content="{% block og_title %}Etienne Walch — Développeur PHP/Symfony freelance{% endblock %}">
-    <meta property="og:description" content="{% block og_description %}Développeur web PHP/Symfony freelance à Mulhouse. Applications web sur mesure, performantes et adaptées à vos besoins.{% endblock %}">
-    <meta property="og:image"       content="{% block og_image %}{{ absolute_url(asset('images/20230527_224322.jpg')) }}{% endblock %}">
+    <meta property="og:url"         content="{% block og_url %}{{ site_url }}{{ path('app_home_index') }}{% endblock %}">
+    <meta property="og:title"       content="{% block og_title %}Etienne Walch — Votre site ou outil métier sur mesure{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Sites et outils métier sur mesure, livrés en quelques semaines grâce à l'IA, par un développeur expérimenté basé à Mulhouse.{% endblock %}">
+    <meta property="og:image"       content="{% block og_image %}{{ site_url }}{{ asset('images/portrait-1200.jpg') }}{% endblock %}">
+    <meta property="og:image:alt"   content="Portrait d'Etienne Walch, développeur web freelance à Mulhouse">
     <meta property="og:locale"      content="fr_FR">
     <meta property="og:site_name"   content="Etienne Walch">
 
     {# ── Twitter Card ─────────────────────────────────────────────────────── #}
     <meta name="twitter:card"        content="summary">
-    <meta name="twitter:title"       content="{% block twitter_title %}Etienne Walch — Développeur PHP/Symfony freelance{% endblock %}">
-    <meta name="twitter:description" content="{% block twitter_description %}Développeur web PHP/Symfony freelance à Mulhouse. Applications web sur mesure.{% endblock %}">
-    <meta name="twitter:image"       content="{% block twitter_image %}{{ absolute_url(asset('images/20230527_224322.jpg')) }}{% endblock %}">
+    <meta name="twitter:title"       content="{% block twitter_title %}Etienne Walch — Votre site ou outil métier sur mesure{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}Sites et outils métier sur mesure, livrés rapidement grâce à l'IA, par un développeur expérimenté basé à Mulhouse.{% endblock %}">
+    <meta name="twitter:image"       content="{% block twitter_image %}{{ site_url }}{{ asset('images/portrait-1200.jpg') }}{% endblock %}">
 
     {# ── Données structurées JSON-LD ──────────────────────────────────────── #}
     {% block structured_data %}
+    {# À COMPLÉTER : ajouter "https://www.instagram.com/etienne_walch/" à sameAs si le lien Instagram est conservé #}
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@graph": [
             {
                 "@type": "Person",
-                "@id": "{{ url('app_home_index') }}#person",
+                "@id": "{{ site_url }}/#person",
                 "name": "Etienne Walch",
-                "jobTitle": "Développeur PHP/Symfony freelance",
-                "description": "Développeur web PHP/Symfony freelance basé à Mulhouse, spécialisé dans la création d'applications web sur mesure pour particuliers et entreprises.",
-                "url": "{{ url('app_home_index') }}",
-                "image": "{{ absolute_url(asset('images/20230527_224322.jpg')) }}",
+                "jobTitle": "Développeur web freelance",
+                "description": "Développeur web freelance basé à Mulhouse, avec plus de 5 ans d'expérience. Ancien enseignant, il conçoit des sites et outils métier sur mesure pour les TPE, PME, artisans et indépendants, en s'appuyant sur l'IA pour livrer plus vite.",
+                "url": "{{ site_url }}/",
+                "image": "{{ site_url }}{{ asset('images/portrait-1200.jpg') }}",
                 "address": {
                     "@type": "PostalAddress",
                     "addressLocality": "Mulhouse",
-                    "addressRegion": "Grand Est",
+                    "addressRegion": "Alsace",
                     "addressCountry": "FR"
                 },
                 "sameAs": [
-                    "https://www.linkedin.com/in/etienne-walch-07683216b/",
-                    "https://www.instagram.com/etienne_walch/"
+                    "https://www.linkedin.com/in/etienne-walch-07683216b/"
                 ],
-                "knowsAbout": ["PHP", "Symfony", "PostgreSQL", "Docker", "API Platform", "Twig", "Bootstrap"]
+                "knowsAbout": ["Développement web", "Applications métier", "API", "PHP", "Symfony", "Intelligence artificielle", "Claude Code"]
             },
             {
                 "@type": "WebSite",
-                "@id": "{{ url('app_home_index') }}#website",
-                "url": "{{ url('app_home_index') }}",
-                "name": "Etienne Walch — Développeur PHP/Symfony",
-                "description": "Portfolio et vitrine d'Etienne Walch, développeur web PHP/Symfony freelance basé à Mulhouse.",
+                "@id": "{{ site_url }}/#website",
+                "url": "{{ site_url }}/",
+                "name": "Etienne Walch — Développeur web freelance à Mulhouse",
                 "inLanguage": "fr-FR",
-                "author": { "@id": "{{ url('app_home_index') }}#person" }
+                "author": { "@id": "{{ site_url }}/#person" }
             },
             {
                 "@type": "ProfessionalService",
-                "@id": "{{ url('app_home_index') }}#service",
-                "name": "Etienne Walch — Développement web PHP/Symfony",
-                "description": "Développement d'applications web sur mesure en PHP/Symfony : sites vitrines, e-commerce, back-office, API REST.",
-                "url": "{{ url('app_home_index') }}",
-                "serviceType": "Développement web sur mesure",
-                "areaServed": {
-                    "@type": "City",
-                    "name": "Mulhouse",
-                    "sameAs": "https://www.wikidata.org/wiki/Q5715"
+                "@id": "{{ site_url }}/#service",
+                "name": "Etienne Walch — Sites et outils métier sur mesure",
+                "description": "Sites et outils métier sur mesure, livrés rapidement grâce à l'IA, par un développeur expérimenté basé à Mulhouse : back-office, portail client, prise de commande, automatisation, reprise de projets IA bloqués, maintenance.",
+                "url": "{{ site_url }}/",
+                "image": "{{ site_url }}{{ asset('images/portrait-1200.jpg') }}",
+                "founder": { "@id": "{{ site_url }}/#person" },
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Mulhouse",
+                    "addressRegion": "Alsace",
+                    "addressCountry": "FR"
                 },
-                "provider": { "@id": "{{ url('app_home_index') }}#person" },
+                "areaServed": [
+                    { "@type": "City", "name": "Mulhouse", "sameAs": "https://www.wikidata.org/wiki/Q5715" },
+                    { "@type": "AdministrativeArea", "name": "Alsace" },
+                    { "@type": "Country", "name": "France" }
+                ],
+                "sameAs": [
+                    "https://www.linkedin.com/in/etienne-walch-07683216b/"
+                ],
                 "hasOfferCatalog": {
                     "@type": "OfferCatalog",
-                    "name": "Services de développement web",
+                    "name": "Prestations",
                     "itemListElement": [
-                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Site vitrine PHP/Symfony" } },
-                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Application web sur mesure" } },
-                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "API REST / API Platform" } },
-                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Back-office & administration" } }
+                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Diagnostic de projet", "description": "Analyse de votre besoin ou de votre projet existant, avec un plan clair et chiffré, sans engagement." } },
+                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Site ou outil métier sur mesure", "description": "Site, prise de commande, back-office, portail client, automatisation, à prix fixe défini avant de commencer." } },
+                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reprise de projet créé avec l'IA", "description": "Correction, sécurisation et mise en ligne de sites ou applications commencés avec ChatGPT, Claude, Lovable ou Bolt." } },
+                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Suivi mensuel et maintenance", "description": "Hébergement, mises à jour, sécurité et petites évolutions." } }
                     ]
                 }
             }
@@ -121,7 +131,7 @@
 </head>
 
 <body>
-<button id="backToTopBtn" title="Retour en haut"><i class="fa-solid fa-caret-up"></i></button>
+<button id="backToTopBtn" type="button" title="Retour en haut" aria-label="Retour en haut de la page"><i class="bi bi-caret-up-fill" aria-hidden="true"></i></button>
 {% include 'partials/_flash_messages.html.twig' %}
 {% block body %}{% endblock %}
 </body>
