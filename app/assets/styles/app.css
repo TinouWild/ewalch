@@ -490,3 +490,193 @@ a {
     outline: 3px solid #f5b400;
     outline-offset: 3px;
 }
+
+/* ==========================================================================
+   Vitrine — sections
+   ========================================================================== */
+.vitrine .section-title p {
+    color: #4a5568;
+    font-size: 1.05rem;
+    max-width: 680px;
+}
+
+/* Placeholder de contenu à fournir — volontairement voyant */
+.a-completer {
+    display: inline-block;
+    background: #fff3b0;
+    color: #6b4e00;
+    border: 2px dashed #d4a017;
+    border-radius: 6px;
+    padding: 0.1rem 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+/* Ce que je résous pour vous */
+.service-card {
+    background: #fff;
+    border: 1px solid #e3eaf3;
+    border-radius: 1rem;
+    padding: 1.75rem;
+    box-shadow: 0 6px 20px rgba(23, 59, 108, 0.06);
+}
+
+.service-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: #e6f0fd;
+    color: #1d64c8;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.service-card h3,
+.argument h3,
+.offre-card h3,
+.frise-etape h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #173b6c;
+    margin-bottom: 0.6rem;
+}
+
+.service-card p,
+.argument p,
+.offre-card p,
+.frise-etape p {
+    color: #3f4a5a;
+    margin-bottom: 0;
+}
+
+/* Pourquoi travailler avec moi */
+.argument > .bi {
+    display: block;
+    font-size: 1.75rem;
+    color: #1d64c8;
+    margin-bottom: 0.75rem;
+}
+
+/* Offres */
+.offre-card {
+    background: #fff;
+    border: 1px solid #e3eaf3;
+    border-radius: 1rem;
+    padding: 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.offre-card--mise-en-avant {
+    border: 2px solid #1d64c8;
+    box-shadow: 0 10px 30px rgba(29, 100, 200, 0.12);
+}
+
+.offre-card .offre-prix {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #173b6c;
+    margin-bottom: 1rem;
+}
+
+.offre-prix-prefixe {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #5a6577;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.offre-prix-suffixe {
+    font-size: 1rem;
+    color: #5a6577;
+    margin-left: 0.15rem;
+}
+
+.offres-mention {
+    margin: 2rem 0 0;
+    padding: 1rem 1.25rem;
+    border-radius: 0.75rem;
+    background: #e6f0fd;
+    color: #173b6c;
+    font-weight: 600;
+}
+
+.offres-mention a {
+    color: #1d64c8;
+    text-decoration: underline;
+}
+
+/* Comment ça se passe : frise verticale sur mobile, horizontale sur grand écran */
+.frise {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 2.75rem;
+    position: relative;
+}
+
+.frise::before {
+    content: "";
+    position: absolute;
+    left: 1.1rem;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 3px;
+    background: #bcd3f2;
+}
+
+.frise-etape {
+    position: relative;
+    padding-bottom: 1.75rem;
+}
+
+.frise-etape:last-child {
+    padding-bottom: 0;
+}
+
+.frise-numero {
+    position: absolute;
+    left: -2.75rem;
+    top: -0.2rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background: #1d64c8;
+    color: #fff;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 5px #f5f8fd;
+}
+
+@media (min-width: 992px) {
+    .frise {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+        padding: 0;
+    }
+
+    .frise::before {
+        left: 1.1rem;
+        right: 1.1rem;
+        top: 1.05rem;
+        bottom: auto;
+        width: auto;
+        height: 3px;
+    }
+
+    .frise-etape {
+        padding: 3.25rem 0 0;
+    }
+
+    .frise-numero {
+        left: 0;
+        top: 0;
+    }
+}
