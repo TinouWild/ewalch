@@ -1,105 +1,84 @@
-<section id="portfolio" class="portfolio">
-    <div class="section-title">
-        <h2 class="text-black">Portfolio</h2>
-    </div>
+<section id="portfolio" class="portfolio" aria-labelledby="portfolio-title">
     <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="col-lg-4">
-                <div class="card mb-3">
-                    <h3 class="card-header text-black">Les fit cookies de la petite Marie</h3>
-                    <img src="{{ asset('images/fitcookies.png') }}" alt="Aperçu du site e-commerce Les fit cookies de la petite Marie, développé avec Symfony et Stripe" class="img-fluid">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            Découvrez le site Les fit cookies de la petite Marie – Une expérience web sur-mesure,
-                            alliant gourmandise et innovation.
-                        </h5>
-                        <p class="card-text justify-text">
-                            Un projet unique que j'ai eu le plaisir de développer, avec des fonctionnalités modernes comme
-                            la gestion des commandes en ligne, le paiement sécurisé via Stripe et un back-office performant
-                            pour un suivi client optimal.
-                        </p>
-                        <div class="d-flex flex-wrap gap-1 mt-2">
-                            <span class="badge bg-dark">Symfony</span>
-                            <span class="badge bg-dark">Stripe</span>
-                            <span class="badge bg-dark">Back-office</span>
-                            <span class="badge bg-dark">PostgreSQL</span>
+        <div class="section-title">
+            <h2 id="portfolio-title">Réalisations</h2>
+            <p>Des projets concrets, pour des personnes qui avaient chacune un besoin bien à elles.</p>
+        </div>
+        <div class="row g-4">
+            {% set projets = [
+                {
+                    'id': 'fitcookies',
+                    'nom': 'Les fit cookies de la petite Marie',
+                    'url': 'https://lesfitcookiesdelapetitemarie.fr',
+                    'image': 'fitcookies',
+                    'alt': "Page d'accueil de la boutique en ligne Les fit cookies de la petite Marie",
+                    'resultat': "Une créatrice qui vend désormais en ligne, en toute autonomie.",
+                    'texte': "Ses clients commandent et paient en ligne en toute sécurité, les factures sont générées automatiquement, et elle suit ses commandes et ses clients depuis son propre espace d'administration.",
+                    'badges': ['Boutique en ligne', 'Paiement Stripe', 'Back-office'],
+                    'modale': 'home/portfolio/fitcookiesmodal.html.twig',
+                },
+                {
+                    'id': 'titine',
+                    'nom': 'Titine Créations',
+                    'url': 'https://titine-creations.fr',
+                    'image': 'titine',
+                    'alt': "Galerie en ligne de Titine Créations présentant des peintures réalisées au couteau",
+                    'resultat': "Une artiste qui expose et gère elle-même ses œuvres en ligne.",
+                    'texte': "Elle peint au couteau, d'une seule main. Son site met ses tableaux en valeur, et c'est elle qui choisit, depuis son espace, les œuvres visibles par le public.",
+                    'badges': ['Galerie', 'Gestion de contenu', 'Back-office'],
+                    'modale': 'home/portfolio/titinemodal.html.twig',
+                },
+                {
+                    'id': 'scoringames',
+                    'nom': 'Scoringames',
+                    'url': 'https://scoringames.com',
+                    'image': 'scoringames',
+                    'alt': "Page d'accueil de la plateforme communautaire Scoringames dédiée aux jeux de société",
+                    'resultat': "Une plateforme communautaire complète pour les passionnés de jeux de société.",
+                    'texte': "Les membres ont leur compte, gèrent leur ludothèque et gagnent des points en participant. L'équipe publie ses articles et ajoute de nouveaux jeux en toute autonomie.",
+                    'badges': ['Comptes membres', 'Système de points', 'Publication d\'articles'],
+                    'modale': 'home/portfolio/scoringames.html.twig',
+                },
+            ] %}
+            {% for projet in projets %}
+                <div class="col-lg-4">
+                    <article class="projet-card h-100" aria-labelledby="projet-{{ projet.id }}-titre">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="{{ asset('images/' ~ projet.image ~ '-480.webp') }} 480w, {{ asset('images/' ~ projet.image ~ '-960.webp') }} 960w"
+                                    sizes="(min-width: 992px) 30vw, 100vw">
+                            <img src="{{ asset('images/' ~ projet.image ~ '-960.jpg') }}" alt="{{ projet.alt }}"
+                                 width="960" height="{{ projet.image == 'scoringames' ? 600 : 540 }}"
+                                 loading="lazy" decoding="async" class="img-fluid projet-image">
+                        </picture>
+                        <div class="projet-body">
+                            <h3 id="projet-{{ projet.id }}-titre">{{ projet.nom }}</h3>
+                            <p class="projet-resultat">{{ projet.resultat }}</p>
+                            <p>{{ projet.texte }}</p>
+                            <blockquote class="temoignage">
+                                {# À COMPLÉTER : témoignage client pour {{ projet.nom }} #}
+                                <span class="a-completer">[À COMPLÉTER : témoignage client]</span>
+                            </blockquote>
+                            <ul class="projet-badges" aria-label="Ce qui a été mis en place">
+                                {% for badge in projet.badges %}
+                                    <li>{{ badge }}</li>
+                                {% endfor %}
+                            </ul>
+                            <div class="projet-actions">
+                                <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                                        data-bs-target="#{{ projet.id }}modal">
+                                    En savoir plus<span class="visually-hidden"> sur {{ projet.nom }}</span>
+                                </button>
+                                <a href="{{ projet.url }}" target="_blank" rel="noopener" class="btn btn-outline-dark">
+                                    Voir le site<span class="visually-hidden"> {{ projet.nom }} (nouvel onglet)</span>
+                                    <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-body d-flex gap-2">
-                        <button type="button" class="btn btn-dark" data-bs-toggle="modal"
-                                data-bs-target="#fitcookiesmodal">En savoir plus
-                        </button>
-                        {% include '/home/portfolio/fitcookiesmodal.html.twig' %}
-                        <a href="https://lesfitcookiesdelapetitemarie.fr" target="_blank" class="btn btn-outline-dark">
-                            Visiter le site <i class="bi bi-box-arrow-up-right ms-1"></i>
-                        </a>
-                    </div>
+                    </article>
+                    {% include projet.modale %}
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card mb-3">
-                    <h3 class="card-header text-black">Titine créations</h3>
-                    <img src="{{ asset('images/titine.png') }}" alt="Aperçu du site vitrine Titine Créations, galerie d'art développée avec Symfony" class="img-fluid">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            Titine Créations - L'art au bout des doigts, même d'une seule main
-                        </h5>
-                        <p class="card-text justify-text">
-                            Découvrez le site que j'ai conçu pour mettre en lumière les peintures réalisées au couteau
-                            par une artiste handicapée d'une main. À travers ce projet, j'ai créé une plateforme
-                            élégante qui expose ses œuvres tout en permettant une gestion autonome grâce à un back
-                            office permettant la modération des peintures visibles sur le site.
-                        </p>
-                        <div class="d-flex flex-wrap gap-1 mt-2">
-                            <span class="badge bg-dark">Symfony</span>
-                            <span class="badge bg-dark">Back-office</span>
-                            <span class="badge bg-dark">Gestion de contenu</span>
-                        </div>
-                    </div>
-                    <div class="card-body d-flex gap-2">
-                        <button type="button" class="btn btn-dark" data-bs-toggle="modal"
-                                data-bs-target="#titinemodal">En savoir plus
-                        </button>
-                        {% include '/home/portfolio/titinemodal.html.twig' %}
-                        <a href="https://titine-creations.fr" target="_blank" class="btn btn-outline-dark">
-                            Visiter le site <i class="bi bi-box-arrow-up-right ms-1"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card mb-3">
-                    <h3 class="card-header text-black">scoringames</h3>
-                    <img src="{{ asset('images/scoringames.png') }}" alt="Aperçu de la plateforme Scoringames dédiée au jeu de société, développée avec Symfony" class="img-fluid">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            Scoringames - L'univers du jeu de société connecté à votre ludothèque virtuelle
-                        </h5>
-                        <p class="card-text justify-text">
-                            Scoringames est une plateforme dédiée à l'actualité du jeu de société, proposant des outils
-                            innovants pour les passionnés. Découvrez un système de gestion de ludothèque virtuelle, un
-                            programme de points récompensant l'activité des utilisateurs (commentaires, partages), et
-                            bien plus. Administré via un back office complet avec éditeur WYSIWYG et système d'import
-                            de jeux, Scoringames allie simplicité et innovation pour enrichir l'expérience des joueurs.
-                        </p>
-                        <div class="d-flex flex-wrap gap-1 mt-2">
-                            <span class="badge bg-dark">Symfony</span>
-                            <span class="badge bg-dark">WYSIWYG</span>
-                            <span class="badge bg-dark">Système de points</span>
-                            <span class="badge bg-dark">Back-office</span>
-                        </div>
-                    </div>
-                    <div class="card-body d-flex gap-2">
-                        <button type="button" class="btn btn-dark" data-bs-toggle="modal"
-                                data-bs-target="#scoringamesmodal">En savoir plus
-                        </button>
-                        {% include '/home/portfolio/scoringames.html.twig' %}
-                        <a href="https://scoringames.com" target="_blank" class="btn btn-outline-dark">
-                            Visiter le site <i class="bi bi-box-arrow-up-right ms-1"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>

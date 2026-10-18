@@ -680,3 +680,158 @@ a {
         top: 0;
     }
 }
+
+/* Réalisations */
+.projet-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid #e3eaf3;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(23, 59, 108, 0.06);
+}
+
+.projet-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: top;
+    border-bottom: 1px solid #e3eaf3;
+}
+
+.projet-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1.5rem;
+}
+
+.projet-body h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #173b6c;
+    margin-bottom: 0.5rem;
+}
+
+.projet-resultat {
+    font-weight: 700;
+    color: #1d64c8;
+}
+
+.projet-body p {
+    color: #3f4a5a;
+}
+
+.temoignage {
+    margin: 0 0 1rem;
+    padding-left: 0.9rem;
+    border-left: 3px solid #bcd3f2;
+    font-style: italic;
+}
+
+.projet-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+}
+
+/* Badges techniques volontairement discrets */
+.projet-badges li {
+    font-size: 0.78rem;
+    color: #4a5568;
+    background: #f1f4f9;
+    border-radius: 999px;
+    padding: 0.15rem 0.6rem;
+}
+
+.projet-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+.projet-modal .modal-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #173b6c;
+}
+
+.projet-modal h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #173b6c;
+    margin-top: 1.25rem;
+}
+
+.projet-modal .modal-body li {
+    margin-bottom: 0.5rem;
+}
+
+.projet-badges--discret {
+    margin: 1.25rem 0 0;
+}
+
+.vitrine .btn-dark,
+.vitrine .btn-dark:focus {
+    background-color: #1b2433;
+    border: none;
+    color: #fff;
+    box-shadow: none;
+}
+
+.vitrine .btn-dark:hover,
+.vitrine .btn-dark:active {
+    background-color: #000;
+    color: #fff;
+}
+
+.vitrine .btn-outline-dark,
+.vitrine .btn-outline-dark:focus {
+    background-color: transparent;
+    border: 2px solid #1b2433;
+    color: #1b2433;
+    box-shadow: none;
+}
+
+.vitrine .btn-outline-dark:hover,
+.vitrine .btn-outline-dark:active {
+    background-color: #1b2433;
+    color: #fff;
+}
+
+.projet-actions .btn {
+    padding: 0.55rem 1.1rem;
+}
+
+/* Les modales doivent passer au-dessus du menu latéral fixe (z-index 9997) */
+.vitrine .modal-backdrop {
+    z-index: 10040;
+}
+
+.vitrine .modal {
+    z-index: 10050;
+}
+
+/* Texte courant plus contrasté que celui du thème Morph (#7b8ab8) */
+body.vitrine {
+    --bs-body-color: #36404f;
+    --bs-body-color-rgb: 54, 64, 79;
+    --bs-secondary-color: #4a5568;
+    color: var(--bs-body-color);
+}
+
+.vitrine .text-muted {
+    color: #4a5568 !important;
+}
+
+.vitrine .projet-modal .modal-content {
+    background-color: #fff;
+    color: #36404f;
+    backdrop-filter: none;
+}
