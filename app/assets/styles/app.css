@@ -371,12 +371,39 @@ a {
 
 /* Démo */
 .demo-feature {
-    background: #f8f9fa;
-    transition: background 0.2s;
+    background: #fff;
+    border: 1px solid #e3eaf3;
 }
 
-.demo-feature:hover {
-    background: #e9f0ff;
+.demo-feature > .bi {
+    color: #1d64c8;
+}
+
+.demo-feature-titre {
+    display: block;
+    font-weight: 700;
+    color: #173b6c;
+    line-height: 1.3;
+}
+
+.demo-feature-detail {
+    display: block;
+    font-size: 0.82rem;
+    color: #5a6577;
+    margin-top: 0.2rem;
+}
+
+.demo-acces {
+    background: #fff;
+    border: 2px solid #1d64c8;
+    border-radius: 1rem;
+    padding: 1.75rem;
+}
+
+.demo-acces h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #173b6c;
 }
 
 /* Technologies */
