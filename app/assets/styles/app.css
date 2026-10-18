@@ -4,18 +4,28 @@
 
 #etienne {
     /* Sort le hero des gouttières de .container-fluid pour un affichage pleine largeur */
+    position: relative;
     width: auto;
     margin-left: -0.75rem;
     margin-right: -0.75rem;
-    padding: 60px 1.25rem;
+    padding: 90px 1.25rem 60px;
     min-height: 100vh;
-    background: url("../images/cover_front.jpg") top center;
+    background-color: #0b1626;
+    background-image: url("../images/cover-800.webp");
+    background-position: top center;
     background-size: cover;
+}
+
+@media (min-width: 801px) {
+    #etienne {
+        background-image: url("../images/cover-1512.webp");
+    }
 }
 
 #etienne:before {
     content: "";
-    background: rgba(5, 13, 24, 0.2);
+    /* Voile sombre : garantit le contraste du texte blanc sur la photo */
+    background: linear-gradient(100deg, rgba(5, 13, 24, 0.88) 0%, rgba(5, 13, 24, 0.7) 55%, rgba(5, 13, 24, 0.45) 100%);
     position: absolute;
     bottom: 0;
     top: 0;
@@ -27,41 +37,65 @@
 #etienne .etienne-container {
     position: relative;
     z-index: 2;
-    min-width: 300px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+#etienne .hero-kicker {
+    color: #8fd3f5;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
 }
 
 #etienne h1 {
-    margin: 0 0 10px 0;
-    font-size: 64px;
+    margin: 0 0 1.5rem 0;
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
     font-weight: 700;
-    line-height: 56px;
+    line-height: 1.15;
     color: #fff;
-}
-
-#etienne p {
-    color: #fff;
-    margin-bottom: 50px;
-    font-size: 26px;
-    font-family: "Poppins", sans-serif;
-}
-
-#etienne p span {
-    color: #fff;
-    padding-bottom: 4px;
-    letter-spacing: 1px;
-    border-bottom: 3px solid #149ddd;
 }
 
 #etienne p.hero-tagline {
-    font-size: 18px;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    max-width: 640px;
+}
+
+#etienne p.hero-location {
+    color: rgba(255, 255, 255, 0.85);
     margin-bottom: 0;
-    color: rgba(255, 255, 255, 0.88);
-    max-width: 520px;
+}
+
+#etienne p.hero-location .bi {
+    color: #8fd3f5;
+}
+
+.hero-portrait {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border: 6px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+@media (min-width: 992px) {
+    .hero-portrait {
+        width: 260px;
+        height: 260px;
+    }
 }
 
 @media (min-width: 1025px) {
     #etienne {
         background-attachment: fixed;
+        /* Laisse la place au menu latéral fixe */
+        padding-left: calc(300px + 2.5rem);
+        padding-right: 2.5rem;
     }
     #main {
         margin-left: 300px;
@@ -80,14 +114,8 @@
 }
 
 @media (max-width: 768px) {
-    #etienne h1 {
-        font-size: 28px;
-        line-height: 36px;
-    }
-    #etienne h2 {
-        font-size: 18px;
-        line-height: 24px;
-        margin-bottom: 30px;
+    #etienne p.hero-tagline {
+        font-size: 1.1rem;
     }
     .hero-cta .btn {
         display: block;
@@ -191,6 +219,7 @@ a {
 
 .nav-cta .btn {
     white-space: normal;
+    padding: 0.65rem 1rem;
 }
 
 /* Bouton d'appel à l'action visible sur mobile (menu latéral masqué) */
@@ -419,4 +448,45 @@ a {
 
 .nav-overlay.active {
     display: block;
+}
+
+/* ==========================================================================
+   Vitrine — boutons contrastés et focus visibles
+   (le thème Morph rend les boutons clairs avec un texte gris-bleu peu lisible)
+   ========================================================================== */
+.vitrine .btn-primary,
+.vitrine .btn-primary:focus {
+    background-color: #1d64c8;
+    border: none;
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(29, 100, 200, 0.3);
+}
+
+.vitrine .btn-primary:hover,
+.vitrine .btn-primary:active {
+    background-color: #174f9e;
+    color: #fff;
+}
+
+.vitrine .btn-outline-light,
+.vitrine .btn-outline-light:focus {
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    color: #fff;
+    box-shadow: none;
+}
+
+.vitrine .btn-outline-light:hover,
+.vitrine .btn-outline-light:active {
+    background-color: #fff;
+    color: #0b1626;
+}
+
+.vitrine a:focus-visible,
+.vitrine button:focus-visible,
+.vitrine .btn:focus-visible,
+.vitrine .form-control:focus-visible,
+.vitrine .form-select:focus-visible {
+    outline: 3px solid #f5b400;
+    outline-offset: 3px;
 }

@@ -6,14 +6,34 @@
     <div class="container-fluid">
         {% include '/partials/_navbar.html.twig' %}
 
-        <section id="etienne" class="d-flex flex-column justify-content-center align-items-center min-vh-100">
-            <div class="etienne-container" data-aos="fade-in">
-                <h1>Etienne Walch</h1>
-                <span id="dev-typed"></span>
-                <p class="hero-tagline">Je conçois des applications web sur mesure, performantes et adaptées à vos besoins.</p>
-                <div class="hero-cta mt-4">
-                    <a href="#portfolio" class="btn btn-primary me-3">Voir mes projets</a>
-                    <a href="#contact" class="btn btn-outline-light">Me contacter</a>
+        <section id="etienne" class="d-flex flex-column justify-content-center min-vh-100" aria-labelledby="hero-title">
+            <div class="etienne-container">
+                <div class="row align-items-center g-4 g-lg-5">
+                    <div class="col-lg-8 order-2 order-lg-1">
+                        <p class="hero-kicker">Etienne Walch · Développeur web freelance</p>
+                        <h1 id="hero-title">Votre site ou outil métier sur mesure, livré en quelques semaines.</h1>
+                        {# Animation Typed.js désactivée pour l'instant : voir assets/typed-init.js pour la réactiver #}
+                        <p class="hero-tagline">
+                            J'utilise l'IA pour aller vite. Mes 5 ans de développement servent à ce que ça marche,
+                            et que ça dure.
+                        </p>
+                        <p class="hero-location">
+                            <i class="bi bi-geo-alt-fill me-1" aria-hidden="true"></i>
+                            Développeur freelance à Mulhouse, en Alsace et à distance.
+                        </p>
+                        <div class="hero-cta mt-4">
+                            <a href="#contact" class="btn btn-primary btn-lg me-3">Parlons de votre projet</a>
+                            <a href="#portfolio" class="btn btn-outline-light btn-lg">Voir mes réalisations</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 order-1 order-lg-2 text-center">
+                        <picture>
+                            <source type="image/webp" srcset="{{ asset('images/portrait-240.webp') }} 240w, {{ asset('images/portrait-480.webp') }} 480w" sizes="(min-width: 992px) 260px, 140px">
+                            <img src="{{ asset('images/portrait-480.jpg') }}" width="260" height="260"
+                                 alt="Etienne Walch, développeur web freelance à Mulhouse, souriant derrière ses lunettes"
+                                 class="hero-portrait rounded-circle" fetchpriority="high">
+                        </picture>
+                    </div>
                 </div>
             </div>
         </section>

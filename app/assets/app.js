@@ -8,7 +8,7 @@
 import './bootstrap.js'
 import './backToTop.js'
 import './textarea.js'
-import './typed-init.js'
+// import './typed-init.js' // animation du hero désactivée, voir assets/typed-init.js
 import './flash.js'
 
 import './styles/morph.css'
