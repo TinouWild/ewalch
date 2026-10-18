@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Service\BrevoMailer;
 use App\Service\SitemapGenerator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -25,21 +26,38 @@ class HomeController extends AbstractController
         $contactForm = $formFactory->createNamedBuilder('contact_form')
             ->add('email', EmailType::class, [
                 'required' => true,
-                'label' => false,
+                'label' => 'Votre email',
+                'help' => 'Votre adresse email ne sera pas partagée, ni conservée.',
                 'attr' => [
-                    'placeholder' => 'Votre email'
+                    'placeholder' => 'vous@exemple.fr',
+                    'autocomplete' => 'email',
                 ]
+            ])
+            ->add('need', ChoiceType::class, [
+                'required' => false,
+                'label' => 'Votre besoin (facultatif)',
+                'placeholder' => 'Choisissez une option',
+                'choices' => [
+                    'Nouveau site ou outil' => 'Nouveau site ou outil',
+                    'Projet IA bloqué' => 'Projet IA bloqué',
+                    'Évolution ou maintenance' => 'Évolution ou maintenance',
+                    'Autre' => 'Autre',
+                ],
             ])
             ->add('object', TextType::class, [
                 'required' => true,
-                'label' => false,
+                'label' => 'Objet',
                 'attr' => [
-                    'placeholder' => 'Objet'
+                    'placeholder' => 'En quelques mots'
                 ]
             ])
             ->add('message', TextareaType::class, [
                 'required' => true,
-                'label' => false
+                'label' => 'Votre message',
+                'attr' => [
+                    'placeholder' => 'Parlez-moi de votre activité et de votre projet',
+                    'rows' => 5,
+                ]
             ])
             ->getForm()
         ;

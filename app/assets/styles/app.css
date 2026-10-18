@@ -883,3 +883,27 @@ body.vitrine {
     color: #36404f;
     backdrop-filter: none;
 }
+
+/* Contact */
+.contact-promesse {
+    font-weight: 600;
+    color: #173b6c !important;
+}
+
+.contact-form,
+.contact-alternatives {
+    background: #fff;
+    border: 1px solid #e3eaf3;
+    border-radius: 1rem;
+    padding: 1.75rem;
+}
+
+.vitrine .contact-form .form-label,
+.vitrine .demo-acces .form-label {
+    font-weight: 700;
+    color: #173b6c;
+}
+
+.vitrine .form-control::placeholder {
+    color: #6b7584;
+}

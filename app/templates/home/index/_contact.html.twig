@@ -1,34 +1,51 @@
-<section id="contact" class="contact">
-    <div class="section-title">
-        <h2 class="text-black">Contact</h2>
-    </div>
+<section id="contact" class="contact" aria-labelledby="contact-title">
     <div class="container">
-        {{ form_start(contactForm) }}
-        <fieldset>
-            <div class="form-group">
-                {{ form_row(contactForm.email) }}
-                <small class="form-text text-muted">Votre adresse email ne sera pas partagée, ni conservée.</small>
+        <div class="section-title">
+            <h2 id="contact-title">Parlons de votre projet</h2>
+            <p class="contact-promesse">
+                <i class="bi bi-clock me-2" aria-hidden="true"></i>Réponse sous 24&nbsp;h. Le premier échange est
+                gratuit et sans engagement.
+            </p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="contact-form">
+                    {{ form_start(contactForm) }}
+                    <fieldset>
+                        <legend class="visually-hidden">Formulaire de contact</legend>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                {{ form_row(contactForm.email) }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_row(contactForm.need) }}
+                            </div>
+                        </div>
+                        {{ form_row(contactForm.object) }}
+                        {{ form_row(contactForm.message, {'id': 'autoResizeTextarea'}) }}
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="bi bi-send me-2" aria-hidden="true"></i>Envoyer
+                            </button>
+                        </div>
+                    </fieldset>
+                    {{ form_end(contactForm) }}
+                </div>
             </div>
-            <div class="form-group mt-3">
-                {{ form_row(contactForm.object) }}
-            </div>
-            <div class="form-group mt-3">
-                <label class="form-label">Votre message :</label>
-                {{ form_row(contactForm.message, {'id': 'autoResizeTextarea'}) }}
-            </div>
-            <button type="submit" class="btn btn-primary mt-3 float-end">Envoyer</button>
-        </fieldset>
-        {{ form_end(contactForm) }}
-
-        <div class="contact-alternatives mt-5 pt-4 border-top">
-            <p class="text-muted mb-3">Vous préférez un contact direct ?</p>
-            <div class="d-flex flex-wrap gap-3">
-                <a href="https://www.linkedin.com/in/etienne-walch-07683216b/" target="_blank" class="btn btn-outline-primary">
-                    <i class="bi bi-linkedin me-2"></i>LinkedIn
-                </a>
-                <a href="https://www.instagram.com/etienne_walch/" target="_blank" class="btn btn-outline-secondary">
-                    <i class="bi bi-instagram me-2"></i>Instagram
-                </a>
+            <div class="col-lg-4">
+                <div class="contact-alternatives">
+                    <p class="mb-3">Vous préférez un contact direct&nbsp;?</p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <a href="https://www.linkedin.com/in/etienne-walch-07683216b/" target="_blank" rel="noopener" class="btn btn-primary">
+                            <i class="bi bi-linkedin me-2" aria-hidden="true"></i>LinkedIn<span class="visually-hidden"> (nouvel onglet)</span>
+                        </a>
+                        {# À COMPLÉTER : garder ou retirer le lien Instagram (aussi dans le menu latéral et le JSON-LD) #}
+                        <a href="https://www.instagram.com/etienne_walch/" target="_blank" rel="noopener" class="btn btn-outline-dark">
+                            <i class="bi bi-instagram me-2" aria-hidden="true"></i>Instagram<span class="visually-hidden"> (nouvel onglet)</span>
+                        </a>
+                    </div>
+                    <p class="mt-3 mb-0"><span class="a-completer">[À COMPLÉTER : garder ou retirer Instagram]</span></p>
+                </div>
             </div>
         </div>
     </div>
