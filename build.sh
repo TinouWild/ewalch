@@ -12,6 +12,7 @@ KEEP=3
 
 echo "==> Building ${IMAGE}:${TAG} (tagged latest + ${TAG})"
 DOCKER_BUILDKIT=1 docker build \
+    --pull \
     --target runtime \
     --tag "${IMAGE}:latest" \
     --tag "${IMAGE}:${TAG}" \

@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
+# Ships the image built by ./build.sh to the server stack /stacks/ewalch.
+#
+# The stack definition (compose file, environment/, config/) lives in
+# ../server/ewalch and is synced on every deploy, so the server always matches
+# that folder (storage/ excepted).
 set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
 REMOTE_HOST="ubuntu@217.182.71.207"
 REMOTE_DIR="/stacks/ewalch"
+STACK_DIR="../server/ewalch"
 COMPOSE_FILE="docker-compose.yml"
 SERVICE="ewalch_php"
 IMAGE="ewalch-prod_php"
@@ -16,12 +22,17 @@ fi
 
 ARCHIVE="ewalch_${TAG}.tar.zst"
 [ -f "${ARCHIVE}" ] || { echo "Archive not found: ${ARCHIVE}" >&2; exit 1; }
+[ -f "${STACK_DIR}/${COMPOSE_FILE}" ] || { echo "Stack not found: ${STACK_DIR}" >&2; exit 1; }
 
 # scp -rp ./app/public/ "${REMOTE_HOST}:${REMOTE_DIR}/storage/app/"
 
 CONTROL_PATH="/tmp/ewalch-deploy-%r@%h:%p"
 SSH_OPTS=(-o "ControlMaster=auto" -o "ControlPath=${CONTROL_PATH}" -o "ControlPersist=60s")
 trap 'ssh "${SSH_OPTS[@]}" -O exit "${REMOTE_HOST}" 2>/dev/null || true' EXIT
+
+echo "==> Syncing stack ${STACK_DIR}/ to ${REMOTE_HOST}:${REMOTE_DIR}/"
+rsync -az --delete --exclude '/storage/' -e "ssh ${SSH_OPTS[*]}" \
+    "${STACK_DIR}/" "${REMOTE_HOST}:${REMOTE_DIR}/"
 
 echo "==> Copying ${ARCHIVE} to ${REMOTE_HOST}:${REMOTE_DIR}/"
 scp "${SSH_OPTS[@]}" "${ARCHIVE}" "${REMOTE_HOST}:${REMOTE_DIR}/"
